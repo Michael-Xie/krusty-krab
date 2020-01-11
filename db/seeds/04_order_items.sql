@@ -1,18 +1,24 @@
 -- Insert values into menu_items.
-INSERT INTO menu_items (name, description, cook_time_millisec)
-VALUES ('Krabby Patty', 'burger with stuff', 10000);
+INSERT INTO order_items (order_id, menu_item_id, quantity)
+VALUES (1, 2, 2);
 
-INSERT INTO menu_items (name, description, cook_time_millisec)
-VALUES ('Dobule Krabby Patty', 'double burger with stuff', 12000);
+INSERT INTO order_items (order_id, menu_item_id, quantity)
+VALUES (1, 3, 1);
 
-INSERT INTO menu_items (name, description, cook_time_millisec)
-VALUES ('Triple Krabby Patty', 'triple burger with stuff', 12000);
+INSERT INTO order_items (order_id, menu_item_id, quantity)
+VALUES (2, 3, 4);
 
-INSERT INTO menu_items (name, description, cook_time_millisec)
-VALUES ('Coral Bits', 'tiny bits indeed', 5000);
+INSERT INTO order_items (order_id, menu_item_id, quantity)
+VALUES (2, 2, 2);
 
-INSERT INTO menu_items (name, description, cook_time_millisec)
-VALUES ('Kelp Rings', 'kind of like onion rings', 8000);
+INSERT INTO order_items (order_id, menu_item_id, quantity)
+VALUES (3, 5, 1);
 
-INSERT INTO menu_items (name, description, cook_time_millisec)
-VALUES ('Krabby Meal', 'burger with stuff + kelp rings + drink', 15000);
+INSERT INTO order_items (order_id, menu_item_id, quantity)
+VALUES (3, 2, 1);
+
+INSERT INTO order_items (order_id, menu_item_id, quantity)
+VALUES (4, 1, 1);
+
+INSERT INTO order_items (order_id, menu_item_id, quantity)
+VALUES (4, 4, 1);
