@@ -5,14 +5,10 @@ const router = express.Router();
 
 module.exports = (db) => {
 
+  const login = require('../models/login')(db)
   // GET /login - Render login page
   router.get("/", (req, res) => {
-    // if (req.session.customer_id) {
-    //   res.redirect("/orders");
-    //   return;
-    // }
     let templateVars = {};
-    console.log('Displaying login page');
     res.render("login", templateVars);
   });
 
@@ -30,7 +26,13 @@ module.exports = (db) => {
     //   res.redirect("/urls");
     // }
     console.log('Posted Login Information');
-    return ;
+    const username = req.body.username
+    const password = req.body.password
+    console.log(username, password)
+    login.verifyLogin(username, password)
+      .then(result => console.log(result.id))
+      .catch(err => console.log("Error: " + err))
+    return;
   });
 
 //   // GET /register - Render register page
