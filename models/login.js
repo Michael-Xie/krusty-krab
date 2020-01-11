@@ -5,4 +5,5 @@ module.exports = (db) => {
     `)
       .then(results => results.rows[0])
       .catch(err => res.send(err))
+  return { verifyLogin }
 }
