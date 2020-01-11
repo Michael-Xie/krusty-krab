@@ -8,7 +8,7 @@ module.exports = (db) => {
 
   const verifySMS = (SMS) =>
     db.query(`
-      SELECT * FROM customers WHERE phone_number = ${SMS};
+      SELECT * FROM customers WHERE cell_number = ${SMS};
     `)
       .then(results => results.rows[0])
       .catch(err => res.send(err))
