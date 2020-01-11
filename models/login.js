@@ -4,6 +4,5 @@ module.exports = (db) => {
       SELECT * FROM customers WHERE username = ${user} AND password = ${pass};
     `)
       .then(results => results.rows[0])
-      .catch(err => res.send(err))
   return { verifyLogin }
 }
