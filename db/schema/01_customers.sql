@@ -7,4 +7,3 @@ CREATE TABLE customers (
   passowrd TEXT NOT NULL,
   cell_number TEXT NOT NULL
 );
-
