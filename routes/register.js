@@ -5,13 +5,18 @@ const router = express.Router();
 module.exports = (db) => {
   const register = require('../models/register')(db)
 
-  // GET /login - Render login page
+  // GET /register - Render registration page
   router.get("/", (req, res) => {
+    if (req.session.customer_id) {
+      res.redirect("/orders/new");
+      return;
+    }
+
     let templateVars = {};
     res.render("register", templateVars);
   });
 
-  // POST /login - Log-in into valid account
+  // POST /register - Register new user
   router.post("/", (req, res) => {
     console.log('Posted Registration Information');
 
@@ -27,8 +32,9 @@ module.exports = (db) => {
             .then(result => {
               if (!result) {
                 // handle re-routing to orders.
-                res.redirect("/orders");
-                console.log(result);
+                // req.session.customer_id = customer.id
+                res.redirect('/orders/new');
+                console.log("Existing user found?", result);
               }
             })
             .catch(err => console.log(err))
