@@ -8,6 +8,11 @@ module.exports = (db) => {
   const login = require('../models/login')(db)
   // GET /login - Render login page
   router.get("/", (req, res) => {
+    if (req.session.customer_id) {
+      res.redirect("/orders/new");
+      return;
+    }
+
     let templateVars = {};
     res.render("login", templateVars);
   });
@@ -24,7 +29,8 @@ module.exports = (db) => {
           res.status(404).send("ERROR: Please enter valid username/password");
         } else {
           console.log('Posted Login Information');
-          res.redirect('/orders');
+          req.session.customer_id = customer.id
+          res.redirect('/orders/new');
         }
       })
       .catch(err => console.log(err))
