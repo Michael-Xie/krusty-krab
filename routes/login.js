@@ -14,12 +14,19 @@ module.exports = (db) => {
 
   // POST /login - Log-in into valid account
   router.post("/", (req, res) => {
-    console.log('Posted Login Information');
     const username = req.body.username
     const password = req.body.password
     console.log(username, password)
     login.verifyLogin(username, password)
-      .then(result => console.log(result))
+      .then(customer => {
+        console.log(customer);
+        if (!customer) {
+          res.status(404).send("ERROR: Please enter valid username/password");
+        } else {
+          console.log('Posted Login Information');
+          res.redirect('/orders');
+        }
+      })
       .catch(err => console.log(err))
     return;
   });
