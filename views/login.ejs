@@ -19,17 +19,19 @@
     </header>
 
     <main class='main-body' style="margin: 1em;">
-      <h3 class='login-title '>LOGIN</h3>
+      <div class="form-border">
+      <h3 class='login-title '>Login <span>for the secret formula.</span></h3>
       <form action="/login" method="POST">
         <div class="form-group mb-2 form-elements">
-          <label class="form-subtitles" for="customer">Username</label>
-          <input class="form-control" type="customer" name="username" placeholder="Enter your username here">
-          <label class="form-subtitles"for="password">Password</label>
-          <input class="form-control" type="password" name="password">
-          <div class="center-minor-element"><button type="submit" class="btn btn-primary">Login</button></div>
+          <input class="form-control" type="customer" name="username" placeholder="What is your username?">
+          <input class="form-control" type="password" name="password" placeholder="Password, please.">
+          <div class="submit-form-button"><button type="submit" class="btn btn-primary">Enter</button></div>
         </div>
       </form>
-
+      </div>
+      <div id=plankton-image-div>
+        <img id=sad-plankton = src="https://data.whicdn.com/images/78520481/original.jpg" alt="sad_plankton">
+      </div>
     </main>
       <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
