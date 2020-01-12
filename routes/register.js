@@ -1,22 +1,19 @@
 const express = require('express');
-const router = express.Router();
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 module.exports = (db) => {
+  const router = express.Router();
   const register = require('../models/register')(db)
 
-  // GET /login - Render login page
   router.get("/", (req, res) => {
     let templateVars = {};
     res.render("register", templateVars);
   });
 
-  // POST /login - Log-in into valid account
   router.post("/", (req, res) => {
-    console.log('Posted Registration Information');
-
-    // [TODO] sanitize input
+    // import register from models to place user in db.
     const username = req.body.username
+    const password = bcrypt.hashSync(req.body.password, 10)
     const sms      = req.body.cellNumber
 
     // call verify username from our models.
@@ -26,9 +23,15 @@ module.exports = (db) => {
           register.verifySMS(sms)
             .then(result => {
               if (!result) {
-                // handle re-routing to orders.
-                console.log('congratulations')
-                res.redirect("/orders");
+                // add customer to db and re-route to orders.
+                register.addCustomer(username, password, sms)
+                  .then(result => {
+                    if (result) {
+                      res.redirect("orders")
+                    }
+                    console.log("DB error: could not add user")
+                    res.redirect("/")
+                  })
               }
             })
             .catch(err => console.log(err))

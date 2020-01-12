@@ -5,10 +5,19 @@ module.exports = (db) => {
     `, [user])
       .then(results => results.rows[0])
 
-  const verifySMS = (SMS) =>
+  const verifySMS = (sms) =>
     db.query(`
       SELECT * FROM customers WHERE cell_number = $1;
-    `, [SMS])
+    `, [sms])
       .then(results => results.rows[0])
-  return { verifyUsername, verifySMS }
+  
+  const addCustomer = (user, pass, sms) => 
+    db.query(`
+      INSERT INTO customers (username, password, cell_number)
+      VALUES ($1, $2, $3) RETURNING *;
+    `, [user, pass, sms])
+      .then(results => results.rows[0])
+
+  return { verifyUsername, verifySMS, addCustomer }
+
 }
