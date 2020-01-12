@@ -1,0 +1,84 @@
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 85%;
+  background-color: rgb(41, 41, 41);
+}
+
+.main-body {
+  margin: 1em;
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  flex-direction: column;
+  height: 85%;
+}
+
+.login-title {
+  display: flex;
+  justify-content: left;
+  font-size: 34px;
+  margin-left: 0.5em;
+  margin-bottom: 1em;
+  color: #fff350;
+}
+
+form {
+  display: flex;
+  justify-content: left;
+  flex-flow: column;
+  background-color: #fff350;
+  width: 64vw;
+  padding-left: 4.5vw;
+}
+
+form-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center-minor-element {
+  display: flex;
+  justify-content: center;
+}
+
+.form-subtitles {
+  font-size: 28px;
+}
+
+
+.form-control:focus::placeholder {
+  color: transparent;
+}
+
+.submit-form-button {
+}
+
+.form-border {
+  border: 5px solid #fff350;
+  padding-top: 7em;
+  padding-bottom: 8em;
+  width: 84vw;
+  margin-top: 1em;
+  margin-bottom: -2em;
+}
+
+span {
+  padding-left: 7px;
+  font-weight: 220;
+}
+
+#plankton-image-div {
+  display: flex;
+  justify-content: right;
+  margin-left: 71vw;
+  margin-top: -33vw;
+}
+
+#sad-plankton {
+  width: 24vw;
+}
