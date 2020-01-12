@@ -27,7 +27,7 @@ module.exports = (db) => {
             .then(result => {
               if (!result) {
                 // handle re-routing to orders.
-                console.log(result)
+                console.log('congratulations')
               }
             })
             .catch(err => console.log(err))
