@@ -9,10 +9,18 @@ module.exports = (db) => {
     // ensure that the user is not logged in.
     if (req.session.customer_id)
       res.redirect('/')
+  // GET /register - Render registration page
+  router.get("/", (req, res) => {
+    if (req.session.customer_id) {
+      res.redirect("/orders/new");
+      return;
+    }
 
     let templateVars = {};
     res.render("register", templateVars);
   });
+
+ // POST /register - Register new user
 
   router.post("/", (req, res) => {
     // import register from models to place user in db.
@@ -39,6 +47,13 @@ module.exports = (db) => {
                   .catch(err => res.send(err))
               } else {
                 res.status(403).send("ERROR: SMS taken or bad input")
+
+              if (!result) {
+                // handle re-routing to orders.
+                // req.session.customer_id = customer.id
+                res.redirect('/orders/new');
+                console.log("Existing user found?", result);
+
               }
             })
             .catch(err => res.send(err))
