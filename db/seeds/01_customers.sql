@@ -19,3 +19,5 @@ VALUES ('Vanessa', '123', '647-111-2222');
 
 INSERT INTO customers (username, password, cell_number) 
 VALUES ('Brandon', '123', '416-020-1122');
+
+SELECT pg_catalog.setval('public.customers_id_seq', 7, true)
