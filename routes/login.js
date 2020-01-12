@@ -5,64 +5,23 @@ const router = express.Router();
 
 module.exports = (db) => {
 
+  const login = require('../models/login')(db)
   // GET /login - Render login page
   router.get("/", (req, res) => {
-    // if (req.session.customer_id) {
-    //   res.redirect("/orders");
-    //   return;
-    // }
     let templateVars = {};
-    console.log('Displaying login page');
     res.render("login", templateVars);
   });
 
   // POST /login - Log-in into valid account
   router.post("/", (req, res) => {
-    // let user = getUserByEmail(req.body.email, users);
-    // if (!user) {
-    //   res.status(403).send("ERROR 403: Email not found. Try again.");
-    //   return;
-    // } else if (!bcrypt.compareSync(req.body.password, user.password)) {
-    //   res.status(403).send("ERROR 403: Password doesn't match. Try Again.");
-    //   return;
-    // } else {
-    //   req.session.user_id = user.id;
-    //   res.redirect("/urls");
-    // }
     console.log('Posted Login Information');
-    return ;
+    const username = req.body.username
+    const password = req.body.password
+    console.log(username, password)
+    login.verifyLogin(username, password)
+      .then(result => console.log(result))
+      .catch(err => console.log(err))
+    return;
   });
-
-//   // GET /register - Render register page
-//   router.get("/register", (req, res) => {
-//     if (req.session.user_id) {
-//       res.redirect("/urls");
-//       return;
-//     }
-//     let templateVars = { user: users[req.session.user_id] };
-//     res.render("registration", templateVars);
-//   });
-
-//   // POST /register - Create a new user
-//   router.post("/register", (req, res) => {
-//     let userID = generateRandomString();
-//     if (!req.body.email || !req.body.password) {
-//       res.status(400).send("ERROR 400: Please fill in both your email and password.");
-//       return;
-//     }
-//     if (getUserByEmail(req.body.email, users)) {
-//       res.status(400).send("ERROR 400: Email already exist.");
-//       return;
-//     }
-//     users[userID] = { id: userID, email: req.body.email, password: bcrypt.hashSync(req.body.password, 10) };
-//     req.session.user_id = userID;
-//     res.redirect("/urls");
-//   });
-
-//   // POST /logout - Log user out by removing encrypted cookie
-//   router.post("/logout", (req, res) => {
-//     req.session = null;
-//     res.redirect("/urls");
-//   });
   return router;
 };
