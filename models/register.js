@@ -9,7 +9,9 @@ module.exports = (db) => {
     db.query(`
       SELECT * FROM customers WHERE cell_number = $1;
     `, [sms])
-      .then(results => results.rows[0])
+      .then(results => {
+        // verify the length is 10
+      })
   
   const addCustomer = (user, pass, sms) => 
     db.query(`
@@ -17,6 +19,7 @@ module.exports = (db) => {
       VALUES ($1, $2, $3) RETURNING *;
     `, [user, pass, sms])
       .then(results => results.rows[0])
+
 
   return { verifyUsername, verifySMS, addCustomer }
 

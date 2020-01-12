@@ -32,13 +32,14 @@ module.exports = (db) => {
                     console.log("DB error: could not add user")
                     res.redirect("/")
                   })
+              } else {
+                res.status(403).send("ERROR: SMS taken or bad input")
               }
             })
             .catch(err => console.log(err))
         } else {
           // tell user username/sms is already taken.
-          console.log("TAKEN!");
-          res.status(403).send("ERROR: Username or SMS is already taken.");
+          res.status(403).send("ERROR: username already taken");
         }
       })
       .catch(err => console.log(err))

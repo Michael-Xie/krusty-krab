@@ -28,8 +28,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieSession({
-  name: "customer_id",
-  keys: ["key1", "key2"]
+  name: "session",
+  keys: ["customer_id", "key2"]
 }));
 
 app.use("/styles", sass({
