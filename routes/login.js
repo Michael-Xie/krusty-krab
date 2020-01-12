@@ -5,9 +5,7 @@ module.exports = (db) => {
   const login = require('../models/login')(db)
   // GET /login - Render login page
   router.get("/", (req, res) => {
-    console.log(req.session.customer_id)
     if (req.session.customer_id) {
-      console.log('true')
       res.redirect("/orders/new");
       return;
     }
