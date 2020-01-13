@@ -80,6 +80,7 @@ app.post('/sms', (req, res) => {
 const loginRoute    = require("./routes/login")(db)
 const logoutRoute   = require("./routes/logout")(db)
 const registerRoute = require("./routes/register")(db)
+const orderRoute    = require("./routes/order")(db)
 const hashPasswords = require("./routes/hash")(db)
 
 // Mount all resource routes
@@ -89,6 +90,7 @@ const hashPasswords = require("./routes/hash")(db)
 
 app.use("/login", loginRoute);
 app.use("/logout", logoutRoute);
+app.use("/order", orderRoute);
 app.use("/register", registerRoute);
 app.use("/hash", hashPasswords);
 

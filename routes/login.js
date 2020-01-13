@@ -6,7 +6,7 @@ module.exports = (db) => {
   // GET /login - Render login page
   router.get("/", (req, res) => {
     if (req.session.customer_id) {
-      res.redirect("/orders/new");
+      res.redirect("/order/new");
       return;
     }
     let templateVars = {};
@@ -24,7 +24,7 @@ module.exports = (db) => {
           res.status(404).send("ERROR: Please enter valid username/password");
         } else {
           req.session.customer_id = customer
-          res.redirect('/orders/new');
+          res.redirect('/order/new');
         }
       })
       .catch(err => console.log(err))
