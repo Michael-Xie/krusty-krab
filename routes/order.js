@@ -11,6 +11,6 @@ module.exports = (db) => {
     }
     res.render('order')
   });
-  
+
   return router;
 };
