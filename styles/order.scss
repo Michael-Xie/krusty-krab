@@ -1,3 +1,9 @@
+h4 {
+  left: 6vw;
+  height: 4vh;
+  position: relative;
+  padding-left: -8vh;
+}
 
 #main-container {
   display: flex;
@@ -21,10 +27,10 @@
   display: flex;
   flex-direction: column;
   justify-content: left;
+  flex-direction: column;
 }
 
 #menu-items {
-  border: 1px solid black;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -52,4 +58,6 @@
   width: 9vw;
 }
 
-
+#table-items {
+  margin-top: 6vh;
+}
