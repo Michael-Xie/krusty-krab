@@ -1,46 +1,58 @@
 const express = require('express');
-const router = express.Router();
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 module.exports = (db) => {
+  const router = express.Router();
   const register = require('../models/register')(db)
 
-  // GET /login - Render login page
   router.get("/", (req, res) => {
-    let templateVars = {};
-    res.render("register", templateVars);
+    // ensure that the user is not logged in.
+    if (req.session.customer_id) {
+      res.redirect('/')
+      return;
+    }
+    res.render('register')
   });
 
-  // POST /login - Log-in into valid account
+ // POST /register - Register new user
+
   router.post("/", (req, res) => {
-    console.log('Posted Registration Information');
-
-    // [TODO] sanitize input
+    // import register from models to place user in db.
     const username = req.body.username
+    const password = bcrypt.hashSync(req.body.password, 10)
     const sms      = req.body.cellNumber
-
+    
     // call verify username from our models.
     register.verifyUsername(username)
       .then(result => {
         if (!result) {
+          // verify the SMS input is good.
           register.verifySMS(sms)
             .then(result => {
-              if (!result) {
-                // handle re-routing to orders.
-                console.log('congratulations')
-                res.redirect("/orders");
+              if (result) {
+                // add customer to db and re-route to orders.
+                register.addCustomer(username, password, sms)
+                  .then(result => {
+                    if (result) {
+                      req.session.customer_id = result.id
+                      res.redirect("/order/new")
+                      return;
+                    }
+                    res.redirect('/')
+                  })
+                  .catch(err => res.send(err))
+              } else {
+                res.status(403).send("ERROR: SMS taken or bad input")
               }
             })
-            .catch(err => console.log(err))
+            .catch(err => res.send(err))
         } else {
           // tell user username/sms is already taken.
-          console.log("TAKEN!");
-          res.status(403).send("ERROR: Username or SMS is already taken.");
+          res.status(403).send("ERROR: username already taken");
         }
       })
-      .catch(err => console.log(err))
-    return;
-  });
+      .catch(err => res.send(err))
+  })
 
   return router;
 };

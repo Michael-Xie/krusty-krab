@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const bcrypt     = require('bcrypt');
 const cookieSession = require("cookie-session");
 
 // PG database client/connection setup
@@ -20,14 +21,15 @@ db.connect();
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+app.set("view engine", "ejs");
+
 app.use(morgan('dev'));
 
-app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieSession({
   name: "session",
-  keys: ["key1", "key2"]
+  keys: ["customer_id", "key2"]
 }));
 
 app.use("/styles", sass({
@@ -36,12 +38,14 @@ app.use("/styles", sass({
   debug: true,
   outputStyle: 'expanded'
 }));
+
 app.use(express.static("public"));
 
 /** -----------------------------------------------------------------------
  *  [TESTING twilio]
  *  -----------------------------------------------------------------------
  */
+/*
 const accountSID = 'AC6ced67dd9caa509c53928f4398cb6ddc'
 const authToken  = '7f96ff0f19d3b90849970a68f3aac83c'
 const client     = require('twilio')(accountSID, authToken)
@@ -64,6 +68,7 @@ app.post('/sms', (req, res) => {
   res.writeHead(200, {'Content-Type': 'text/xml'})
   res.end(twiml.toString())
 })
+*/
 
 // ------------------------------------------------------------------------
 
@@ -72,8 +77,11 @@ app.post('/sms', (req, res) => {
 // const usersRoutes = require("./routes/users");
 // const widgetsRoutes = require("./routes/widgets");
 
-const loginRoute = require("./routes/login")(db);
-const registerRoute = require("./routes/register")(db);
+const loginRoute    = require("./routes/login")(db)
+const logoutRoute   = require("./routes/logout")(db)
+const registerRoute = require("./routes/register")(db)
+const orderRoute    = require("./routes/order")(db)
+const hashPasswords = require("./routes/hash")(db)
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -81,7 +89,11 @@ const registerRoute = require("./routes/register")(db);
 // app.use("/api/widgets", widgetsRoutes(db));
 
 app.use("/login", loginRoute);
+app.use("/logout", logoutRoute);
+app.use("/order", orderRoute);
 app.use("/register", registerRoute);
+app.use("/hash", hashPasswords);
+
 // Note: mount other resources here, using the same pattern above
 
 
