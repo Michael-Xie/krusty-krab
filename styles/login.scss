@@ -9,10 +9,10 @@ body {
 }
 
 .main-body {
-  margin: 1em;
   display: flex;
   justify-content: center;
   height: 100%;
+  margin-top: 2em;
 }
 
 .login-title {
@@ -60,10 +60,9 @@ form-elements {
   display: flex;
   border: 5px solid #fff350;
   padding-top: 7em;
-  padding-bottom: 11em;
   width: 88%;
   justify-content: left;
-  margin-top: 3em;
+  margin-top: 2.2em;
   flex-direction: column;
 }
 
