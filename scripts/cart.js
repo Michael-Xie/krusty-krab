@@ -7,8 +7,8 @@ $(document).ready(function() {
     // check if the .item-btn parent id exists in the cart already.
     if (!$(`#${$itemId}-cart`).length) {
       const $itemDiv      = $("<div>", {"class": "item-div", "id": `${$itemId}-cart`})
-      const $copyItemName = $("<span>", {"class": "item-name", "id": `${$itemId}-cart-name`}).html(`${$itemName} `)
-      const $itemQuantity = $("<span>", {"class": "item-value", "id": `${$itemId}-cart-value`}).html(1)
+      const $copyItemName = $("<input>", {"class": "item-name", "id": `${$itemId}-cart-name`, "name": "item", "value": `${$itemName}`})
+      const $itemQuantity = $("<input>", {"class": "item-value", "id": `${$itemId}-cart-value`, "name": "quantity", "value": "1"})
       const $removeItem   = $("<a>", {"class": "item-subtract", "id": `${$itemId}-subtract`, "href": "#"}).html(`- `)
       const $addItem      = $("<a>", {"class": "item-add", "id": `${$itemId}-add`, "href": "#"}).html(` +`)
       // append all the data to the item-container.
@@ -19,6 +19,8 @@ $(document).ready(function() {
       $(`#item-container`).append($itemDiv)
       // hide the itemBtn
       $(`#${$itemId}-btn`).fadeOut(1000)
+    } else {
+      return
     }
 
     // alter the price. -- move into a function
@@ -28,7 +30,7 @@ $(document).ready(function() {
     $(`#${$itemId}-subtract`).click(function(event) {
       const $BtnId = $(this).parent().attr("id")
 
-      let $value = $(`#${$BtnId}-value`).html()
+      let $value = $(`#${$BtnId}-value`).attr("value")
       $value = parseInt($value, 10)
       $value--
       // if the value is 0 remove the div.
@@ -37,7 +39,7 @@ $(document).ready(function() {
         // display the previously hidden btn.
         $(`#${$itemId}-btn`).fadeIn(1000)
       }
-      $(`#${$BtnId}-value`).html($value)      
+      $(`#${$BtnId}-value`).attr("value", $value)
 
       let $currentTotal = Number($('#price-total').html()) - (Number($itemPrice) / 100)
       $('#price-total').html(`${$currentTotal.toFixed(2)}`)
@@ -46,10 +48,10 @@ $(document).ready(function() {
     $(`#${$itemId}-add`).click(function(event) {
       const $BtnId = $(this).parent().attr("id")
 
-      let $value = $(`#${$BtnId}-value`).html()
+      let $value = $(`#${$BtnId}-value`).attr("value")
       $value = parseInt($value, 10)
       $value++
-      $(`#${$BtnId}-value`).html($value)      
+      $(`#${$BtnId}-value`).attr("value", $value)
 
       let $currentTotal = Number($('#price-total').html()) + (Number($itemPrice) / 100)
       $('#price-total').html(`${$currentTotal.toFixed(2)}`)
