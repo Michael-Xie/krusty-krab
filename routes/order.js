@@ -20,8 +20,6 @@ module.exports = (db) => {
         //   console.log(item.category_name);
         // }
       });
-
-    res.render('order');
   });
 
   return router;
