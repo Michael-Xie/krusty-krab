@@ -19,7 +19,6 @@ body {
   display: flex;
   justify-content: left;
   font-size: 3vw;
-  margin-left: 0.5em;
   margin-bottom: 1em;
   color: #fff350;
 }
@@ -64,6 +63,7 @@ form-elements {
   width: 88%;
   justify-content: left;
   margin-top: 3em;
+  align-items: center;
   flex-direction: column;
 }
 
