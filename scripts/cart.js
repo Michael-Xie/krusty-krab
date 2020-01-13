@@ -1,9 +1,9 @@
 $(document).ready(function() {
   $(".item-btn").click(function(event) {
     // get the id of the .item-btn parent element and check the name.
-    const $itemId    = $(this).parent().attr("id")
-    const $itemName  = $(this).parent().children(`#${$itemId}-name`).html()
-    const $itemPrice = $(this).parent().children(`#${$itemId}-price`).html()
+    const $itemId    = $(this).parent().parent().attr("id")
+    const $itemName  = $(this).parent().parent().children(`#${$itemId}-name`).html()
+    const $itemPrice = $(this).parent().parent().children(`#${$itemId}-price`).html()
     // check if the .item-btn parent id exists in the cart already.
     if (!$(`#${$itemId}-cart`).length) {
       const $itemDiv      = $("<div>", {"class": "item-div", "id": `${$itemId}-cart`})

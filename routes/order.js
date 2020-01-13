@@ -25,6 +25,7 @@ module.exports = (db) => {
 
   router.post("/place_order", (req, res) => {
     console.log(req.body)
+    res.redirect("/order")
   })
 
   return router;
