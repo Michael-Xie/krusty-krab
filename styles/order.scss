@@ -10,10 +10,11 @@
   display: flex;
   justify-content: left;
   flex-direction: column;
-  border: 1px solid black;
-  height: 90vh;
+  border-right: 1px solid black;
+  height: 100vh;
   width: 20%;
   position: fixed;
+  top: 8vh;
 
 }
 
@@ -35,11 +36,12 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid black;
+  border-left: 1px solid black;
   height: 100vh;
   width: 25vw;
   position: fixed;
   right: 0;
+  top: 8vh;
 }
 
 
