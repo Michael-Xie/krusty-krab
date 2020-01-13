@@ -36,18 +36,5 @@ module.exports = (db) => {
       .then(results => results.rows[0])
       .catch(err => console.log(err))
 
-
-  return { verifyUsername, verifySMS, addCustomer }
-
-      SELECT * FROM customers WHERE cell_number = $1;
-    `, [SMS])
-      .then(results => results.rows[0]);
-
-  const registerUser = (user, password, cell_number) =>
-    db.query(`
-    INSERT INTO customers (username, password, cell_number) VALUES ($1, $2, $3) RETURNING *;
-    `, [user, password, cell_number])
-      .then(result => result.rows[0]);
-
-  return { verifyUsername, verifySMS, registerUser };
+  return { verifyUsername, verifySMS, addCustomer };
 }

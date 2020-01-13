@@ -9,7 +9,6 @@ module.exports = (db) => {
       res.redirect("/orders/new");
       return;
     }
-
     let templateVars = {};
     res.render("login", templateVars);
   });

@@ -7,17 +7,11 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     // ensure that the user is not logged in.
-    if (req.session.customer_id)
-      res.redirect('/')
-  // GET /register - Render registration page
-  router.get("/", (req, res) => {
     if (req.session.customer_id) {
-      res.redirect("/orders/new");
+      res.redirect('/')
       return;
     }
-
-    let templateVars = {};
-    res.render("register", templateVars);
+    res.render('register')
   });
 
  // POST /register - Register new user
@@ -32,6 +26,7 @@ module.exports = (db) => {
     register.verifyUsername(username)
       .then(result => {
         if (!result) {
+          // verify the SMS input is good.
           register.verifySMS(sms)
             .then(result => {
               if (result) {
@@ -39,7 +34,8 @@ module.exports = (db) => {
                 register.addCustomer(username, password, sms)
                   .then(result => {
                     if (result) {
-                      res.redirect("orders")
+                      req.session.customer_id = result.id
+                      res.redirect("/orders/new")
                       return;
                     }
                     res.redirect('/')
@@ -47,13 +43,6 @@ module.exports = (db) => {
                   .catch(err => res.send(err))
               } else {
                 res.status(403).send("ERROR: SMS taken or bad input")
-
-              if (!result) {
-                // handle re-routing to orders.
-                // req.session.customer_id = customer.id
-                res.redirect('/orders/new');
-                console.log("Existing user found?", result);
-
               }
             })
             .catch(err => res.send(err))
@@ -63,8 +52,7 @@ module.exports = (db) => {
         }
       })
       .catch(err => res.send(err))
-    return;
-  });
+  })
 
   return router;
 };
