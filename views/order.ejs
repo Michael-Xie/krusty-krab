@@ -48,7 +48,8 @@
               <th><img class="food-image" src=<%= menuItems[item].image_url %>></div></th>
               <th id=<%= idName + '-name' %>><%= menuItems[item].name %></th>
               <th id=<%= idName + '-price' %>><%= menuItems[item].price %></th>
-              <th class="item-btn" id=<%= menuItems[item].name + '-btn' %> href="#">+</th>
+              <th><a class="item-btn" id=<%= idName + '-btn' %>
+                  href="#">+</a></th>
               <th><%= menuItems[item].description %></th>
             </tr>
             <% } %>

@@ -40,7 +40,7 @@ VALUES ('Kelp Shake', 200, '... temp desc.', 6000, 'blank');
 
 INSERT INTO menu_items (name, price, description, cook_time_millisec, image_url)
 VALUES ('Seafoam Soda', 200, '... temp desc.', 5000, 'blank');
-=======
+
 INSERT INTO menu_items (name, price, description, cook_time_millisec, image_url, category_id)
 VALUES ('Krabby Patty', 125, 'This special burger is a staple of the Krusty Krab. In fact, it is so delicious that we cannot list the contents of the burger for fear that the special formula will fall into evil hands!', 10000, 'https://vignette.wikia.nocookie.net/spongebob/images/d/d4/Krabby_Patty_transparentpng.png/revision/latest?cb=20170310181007', 1);
 
