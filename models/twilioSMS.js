@@ -1,18 +1,16 @@
-module.exports = {
-  /*
+module.exports = () => {
   const sendSMS = () => {
-    const accountSID = 'AC6ced67dd9caa509c53928f4398cb6ddc'
-    const authToken  = '7f96ff0f19d3b90849970a68f3aac83c'
+    const accountSID = 'AC099f1c745f442ce0bf6b8399edb79a6e'
+    const authToken  = '83448659240ed5caa4791deabcdcc6bb'
     const client     = require('twilio')(accountSID, authToken)
-
+    console.log("here")
     client.messages
       .create({
         body: 'Order has been placed :)',
-        from: '+12512559261',
-        to: '+14169955011'
+        from: '+17014011189',
+        to: '+14169318503'
       })
       .then(message => console.log(message.sid))
-    return;
   }
     /*
     const messagingResponse = require('twilio').twiml.MessagingResponse
@@ -25,5 +23,6 @@ module.exports = {
       res.writeHead(200, {'Content-Type': 'text/xml'})
       res.end(twiml.toString())
     */
+  return { sendSMS }
 }
 
