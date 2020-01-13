@@ -34,6 +34,7 @@
       </div>
       <div id="menu-items">
         <h4 style="position:fixed">Menu</h4>
+        <div id="all-items">
         <table class="table">
           <thead>
             <tr>
@@ -42,15 +43,18 @@
           </thead>
           <tbody>
             <% for(let item in menuItems) { %>
-            <tr>
-              <td><img src=<%= menuItems[item].image_url %></td>
-              <td><%= menuItems[item].name %></td>
-              <td><%= menuItems[item].description %></td>
-              <td><%= menuItems[item].price %></td>
+            <% let idName = menuItems[item].name.replace(/ /g, '-').toLowerCase(); %>
+            <tr id=<%= idName %>>
+              <th><img class="food-image" src=<%= menuItems[item].image_url %>></div></th>
+              <th id=<%= idName + '-name' %>><%= menuItems[item].name %></th>
+              <th id=<%= idName + '-price' %>><%= menuItems[item].price %></th>
+              <th class="item-btn" id=<%= menuItems[item].name + '-btn' %> href="#">+</th>
+              <th><%= menuItems[item].description %></th>
             </tr>
             <% } %>
           </tbody>
         </table>
+      </div>
         <div style="display: flex; flex-direction: column;">
           <li style="margin-top: 90em;"></li>
           <li style="margin-top: 90em;"></li>
