@@ -10,6 +10,7 @@ module.exports = (db) => {
       res.redirect('login')
       return;
     }
+
     order.getMenuItems()
       .then(result => {
         console.log(result)
@@ -19,6 +20,8 @@ module.exports = (db) => {
         //   console.log(item.category_name);
         // }
       });
+
+    res.render('order');
   });
 
   return router;
