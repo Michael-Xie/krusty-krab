@@ -14,7 +14,29 @@ module.exports = (db) => {
 
     order.getMenuItems()
       .then(result => {
-        res.render('order', {menuItems: result});
+        // console.log(result)
+        let categoryInfo = {};
+        let newObj = {};
+        for (let obj of result) {
+          console.log("from loop:", obj);
+          if(!categoryInfo[obj.category_id]) {
+            categoryInfo[obj.category_id] = obj.category_name;
+          }
+          let formattedObj = {id: obj.id, name: obj.name, cook_time_millisec: obj.cook_time_millisec, description: obj.description, image_url: obj.image_url, price: obj.price};
+
+          if (newObj[obj.category_id]) {
+            newObj[obj.category_id].push(formattedObj)
+          } else {
+            newObj[obj.category_id] = [formattedObj]
+          }
+        }
+        console.log(newObj);
+        console.log(categoryInfo);
+        //res.render('order', {menuItems: newObj, categoryInfo: categoryInfo});
+        // example of getting values
+        // for (item of result) {
+        //   console.log(item.category_name);
+        // }
       });
   });
 
