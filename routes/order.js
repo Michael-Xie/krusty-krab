@@ -10,15 +10,16 @@ module.exports = (db) => {
       res.redirect('login')
       return;
     }
-    // order.getMenuItems()
-    //   .then(result => {
-    //     console.log(result)
-    //     // example of getting values
-    //     for (item of result) {
-    //       console.log(item.name);
-    //     }
-    //   });
-
+    
+    order.getMenuItems()
+      .then(result => {
+        console.log(result)
+        // example of getting values
+        // for (item of result) {
+        //   console.log(item.category_name);
+        // }
+      });
+    
     res.render('order');
   });
 
