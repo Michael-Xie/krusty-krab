@@ -1,8 +1,9 @@
 const express = require('express');
 
 module.exports = (db) => {
-  const router = express.Router();
-  const order = require('../models/order')(db)
+  const router  = express.Router();
+  const order   = require('../models/order')(db)
+  const sendSMS = require('../models/twilioSMS')
 
   router.get("/", (req, res) => {
     // if the customer is not logged in, redirect to login.
@@ -22,6 +23,10 @@ module.exports = (db) => {
     
     res.render('order');
   });
+
+  router.post("/place_order", (req, res) => {
+    console.log(req.body)
+  })
 
   return router;
 };
