@@ -11,16 +11,14 @@ body {
 .main-body {
   margin: 1em;
   display: flex;
-  justify-content: left;
-  align-content: center;
-  flex-direction: column;
-  height: 85%;
+  justify-content: center;
+  height: 100%;
 }
 
 .login-title {
   display: flex;
   justify-content: left;
-  font-size: 34px;
+  font-size: 3.3vw;
   margin-left: 0.5em;
   margin-bottom: 1em;
   color: #fff350;
@@ -59,12 +57,14 @@ form-elements {
 }
 
 .form-border {
+  display: flex;
   border: 5px solid #fff350;
   padding-top: 7em;
-  padding-bottom: 8em;
-  width: 84vw;
-  margin-top: 1em;
-  margin-bottom: -2em;
+  padding-bottom: 11em;
+  width: 88%;
+  justify-content: left;
+  margin-top: 3em;
+  flex-direction: column;
 }
 
 span {

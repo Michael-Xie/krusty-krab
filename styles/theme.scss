@@ -2338,6 +2338,7 @@ fieldset:disabled a.btn {
   background-color: #fff350;
   width: 5em;
   height: 3em;
+  font-size: 2vw;
 }
 
 .btn-primary:hover {
@@ -2345,8 +2346,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary:focus, .btn-primary.focus {
-  color: white;
-  background-color: #212529;
+  color: black;
+  background-color:transparent;
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
