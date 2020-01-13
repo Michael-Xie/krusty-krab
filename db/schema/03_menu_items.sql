@@ -6,5 +6,6 @@ CREATE TABLE menu_items (
   name TEXT NOT NULL,
   price SMALLINT NOT NULL,
   description TEXT NOT NULL,
-  cook_time_millisec INTEGER NOT NULL
+  cook_time_millisec INTEGER NOT NULL,
+  image_url TEXT NOT NULL
 );
