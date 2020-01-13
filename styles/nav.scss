@@ -1,18 +1,17 @@
-header {
-  height: 6em;
-}
-
 nav {
-  background-color: white;
+  background-image: url("../images/nav-bar.png");
+  background-height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: black;
-  height: 6em;
+  border-bottom: 2px solid #000;
 }
 
 strong {
-  color: #2c9dbf;
-  font-size: 30px;
+  color: rgb(100,40,10);
+  text-shadow: 0.5px 0.5px #ff0;
+  font-size: 1.55em;
 }
-
 
 navbar-collapse {
   align-items: left;
