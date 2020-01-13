@@ -3,28 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/styles/theme.css">
+    <link rel="stylesheet" type="text/css" href="/styles/nav.css">
+    <link rel="stylesheet" type="text/css" href="/styles/login.css">
 
     <title>Krusty Krab</title>
   </head>
 
   <body>
+    <header>
+      <%-
+        include('partials/nav.ejs') %>
+    </header>
 
-    <main style="margin: 1em;">
-      <h3>Register</h3>
-      <form action="/register" method="POST">
-        <div class="form-group mb-2">
-          <label for="customer">Username</label>
-          <input class="form-control" type="text" name="username" placeholder="Username" style="width: 300px; margin: 1em">
-          <label for="password">Password</label>
-          <input class="form-control" type="password" name="password" placeholder="Password" style="width: 300px; margin: 1em">
-          <label for="customer">Cell Number</label>
-          <input class="form-control" type="tel" name="cellNumber" placeholder="Cell Number" style="width: 300px; margin: 1em">
+    <main class="main-body" style="margin: 1em;">
+      <div class="form-border">
+      <h3 class="login-title">Join<span>the bikini bottom.</span></h3>
+        <div class="form-group mb-2 form-elements">
+          <form action="/register" method="POST">
+          <input class="form-control" type="text" name="username" placeholder="Username">
+          <input class="form-control" type="password" name="password" placeholder="Password">
+          <input class="form-control" type="tel" name="cellNumber" placeholder="Cell Number">
           <button type="submit" class="btn btn-primary">Register</button>
-        </div>
       </form>
+      </div>
+      </div>
 
     </main>
       <!-- Bootstrap JS -->

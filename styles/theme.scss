@@ -1849,7 +1849,7 @@ pre code {
 .form-control {
   display: flex;
   width: 46vw;
-  height: 6vw;
+  height: 3vw;
   padding: -1.625rem 0.75rem;
   font-size: 2vw;
   font-weight: 400;
@@ -1861,8 +1861,7 @@ pre code {
   border: none;
   border-bottom: 1px solid black;
   color: black;
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.7em;
   padding-left: 10px;
 }
 
@@ -2317,7 +2316,8 @@ textarea.form-control {
 }
 
 .btn:hover {
-  color: #212529;
+  color: yellow;
+  text-shadow: 2px 2px #2c9dbf;
   text-decoration: none;
 }
 
@@ -2335,8 +2335,9 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: black;
-  background-color: white;
+  color: #2c9dbf;
+  text-shadow: 2px 2px yellow;
+  background-color: transparent;
   width: 5em;
   height: 3em;
   font-size: 2vw;
