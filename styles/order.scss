@@ -1,0 +1,45 @@
+
+#main-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 6vw;
+
+}
+
+#left-column {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  border: 1px solid black;
+  height: 90vh;
+  width: 20%;
+  position: fixed;
+
+}
+
+#categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+#menu-items {
+  border: 1px solid black;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+#cart-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  height: 100vh;
+  width: 25vw;
+  position: fixed;
+  right: 0;
+}
+
+

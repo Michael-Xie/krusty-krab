@@ -6,7 +6,7 @@
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/styles/nav.css">
     <link rel="stylesheet" type="text/css" href="/styles/theme.css">
-    <link rel="stylesheet" type="text/css" href="/styles/homepage.css">
+    <link rel="stylesheet" type="text/css" href="/styles/order.css">
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -21,12 +21,32 @@
       <%-
        include('./partials/nav.ejs') %>
     </header>
-    <main>
-      <div class='homepage-image'>
-        <img class='home-picture' src="https://wallpaperplay.com/walls/full/f/d/c/278094.jpg" alt="The Krusty Krab">
+    <main id="main-container">
+      <div id="left-column">
+        <h4>Categories</h4>
+        <div id="categories">
+          <a href="#go-here" style="margin-top: 5px;">Patties</button>
+          <a href="" style="margin-top: 5px;">Meals</button>
+          <a href="" style="margin-top: 5px;">Snacks</button>
+          <a href="" style="margin-top: 5px;">Other</button>
+          <a href="" style="margin-top: 5px;">Drinks</button></a>
+        </div>
       </div>
-      <div>
-
+      <div id="menu-items">
+        <h4 style="position:fixed">Menu</h4>
+        <div style="display: flex; flex-direction: column;">
+          <li style="margin-top: 90em;"></li>
+          <li style="margin-top: 90em;"></li>
+          <div id="go-here">
+            <p
+            <li id="go-here" style="margin-top: 30em;">GO HERE</li>
+          </div>
+          <li style="margin-top: 90em;"></li>
+          <li style="margin-top: 10em;"></li>
+        </div>
+      </div>
+      <div id="cart-container">
+        <h4>Cart</h4>
       </div>
     </main>
 
