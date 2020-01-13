@@ -2336,7 +2336,7 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: black;
-  background-color: #fff350;
+  background-color: white;
   width: 5em;
   height: 3em;
   font-size: 2vw;
@@ -4333,11 +4333,13 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.75);
+  color: #2c9dbf;
+  text-shadow: 1px 1px yellow;
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-  color: black;
+  color: yellow;
+  text-shadow: 1px 1px #2c9dbf;
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
