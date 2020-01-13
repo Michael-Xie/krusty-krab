@@ -34,6 +34,23 @@
       </div>
       <div id="menu-items">
         <h4 style="position:fixed">Menu</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let item in menuItems) { %>
+            <tr>
+              <td><img src=<%= menuItems[item].image_url %></td>
+              <td><%= menuItems[item].name %></td>
+              <td><%= menuItems[item].description %></td>
+              <td><%= menuItems[item].price %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
         <div style="display: flex; flex-direction: column;">
           <li style="margin-top: 90em;"></li>
           <li style="margin-top: 90em;"></li>

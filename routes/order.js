@@ -13,13 +13,12 @@ module.exports = (db) => {
     order.getMenuItems()
       .then(result => {
         console.log(result)
+        res.render('order', {menuItems: result});
         // example of getting values
         // for (item of result) {
         //   console.log(item.category_name);
         // }
       });
-
-    res.render('order');
   });
 
   return router;
