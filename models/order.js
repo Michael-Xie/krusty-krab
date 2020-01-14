@@ -37,6 +37,6 @@ module.exports = (db) => {
         JOIN customers ON customers.id = orders.customer_id
         WHERE order_items.order_id = $1;
       `, [order_id])
-        .then(result => console.log(result.rows))
+        .then(result => result.rows)
   return { getMenuItems, postOrderItems, getMenuIds, createOrder, getOrderData};
 }

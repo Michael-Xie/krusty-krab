@@ -40,8 +40,8 @@ module.exports = (db) => {
   });
 
   router.post("/place_order", (req, res) => {
-    //sendSMS.sendSMS()
     // create a new order.
+    let isChecked = false;
     const customer_id = req.session.customer_id
     // go through the process of creating an order and filling it with items.
     order.createOrder(customer_id)
@@ -51,6 +51,7 @@ module.exports = (db) => {
           let item_length = req.body.item.length
           if (!Array.isArray(req.body.item))
             item_length = 1 
+          console.log(item_length)
           for (let i = 0; i < item_length; i++) {
             order.getMenuIds(req.body.item[i])
               .then(resTwo => {
@@ -58,9 +59,14 @@ module.exports = (db) => {
                 if (resTwo) {
                   order.postOrderItems(resOne.id, resTwo.id, req.body.quantity[i])
                     .then(resThree => {
-                      console.log(item_length, i)
-                      if (i === (item_length - 1))
-                        order.getOrderData(resOne.id).then().catch(err => console.log(err))
+                      order.getOrderData(resOne.id)
+                        .then(result => {
+                          if ((result.length === item_length || item_length === 1) && !isChecked) {
+                            isChecked = true;
+                            sendSMS.sendSMS(result)
+                          }
+                      })
+                        .catch(err => console.log(err))
                     })
                     .catch(err => console.log(err))
                     // retrieve the order data then send out the sms.
