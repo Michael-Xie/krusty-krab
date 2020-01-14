@@ -1,14 +1,14 @@
 module.exports = () => {
   const sendSMS = () => {
-    const accountSID = 'AC099f1c745f442ce0bf6b8399edb79a6e'
-    const authToken  = '83448659240ed5caa4791deabcdcc6bb'
+    const accountSID = process.env.ACCOUNT_SID
+    const authToken  = process.env.AUTH_TOKEN
     const client     = require('twilio')(accountSID, authToken)
     console.log("here")
     client.messages
       .create({
         body: 'Order has been placed :)',
-        from: '+17014011189',
-        to: '+14169318503'
+        from: '+17024302673',
+        to: '+14169955011'
       })
       .then(message => console.log(message.sid))
   }

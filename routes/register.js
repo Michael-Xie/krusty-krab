@@ -35,7 +35,7 @@ module.exports = (db) => {
                   .then(result => {
                     if (result) {
                       req.session.customer_id = result.id
-                      res.redirect("/order/new")
+                      res.redirect("/order")
                       return;
                     }
                     res.redirect('/')
