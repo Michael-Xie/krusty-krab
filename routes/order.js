@@ -18,11 +18,17 @@ module.exports = (db) => {
         let categoryInfo = {};
         let newObj = {};
         for (let obj of result) {
-          console.log("from loop:", obj);
           if(!categoryInfo[obj.category_id]) {
             categoryInfo[obj.category_id] = obj.category_name;
           }
-          let formattedObj = {id: obj.id, name: obj.name, cook_time_millisec: obj.cook_time_millisec, description: obj.description, image_url: obj.image_url, price: obj.price};
+          let formattedObj = {
+            id: obj.id, 
+            name: obj.name, 
+            cook_time_millisec: obj.cook_time_millisec, 
+            description: obj.description, 
+            image_url: obj.image_url, 
+            price: obj.price
+          };
 
           if (newObj[obj.category_id]) {
             newObj[obj.category_id].push(formattedObj)
@@ -30,8 +36,6 @@ module.exports = (db) => {
             newObj[obj.category_id] = [formattedObj]
           }
         }
-        console.log(newObj);
-        console.log(categoryInfo);
         res.render('order', {menuItems: newObj, categoryInfo: categoryInfo});
         // example of getting values
         // for (item of result) {
@@ -41,12 +45,12 @@ module.exports = (db) => {
   });
 
   router.post("/place_order", (req, res) => {
-    sendSMS.sendSMS()
+    const customer_id = req.session.customer_id.rows[0].id
     // create a new order.
-    const customer_id = req.session.customer_id
     order.createOrder(customer_id)
       .then(resOne => {
         if (resOne) {
+          //sendSMS.getOrderData(resOne.id).then(result => result)
           // get menu_item id for each item then add it to the order_items.
           for (let i = 0; i < req.body.item.length; i++) {
             order.getMenuIds(req.body.item[i])
@@ -64,9 +68,8 @@ module.exports = (db) => {
       })
         .catch(err => console.log(err))
     })
-    //req.body.item.forEach(items => console.log(item))
-    // generate and order
 
+    //sendSMS.sendSMS()
   return router;
 };
 
