@@ -7,8 +7,8 @@ module.exports = () => {
     client.messages
       .create({
         body: 'Order has been placed :)',
-        from: '+17014011189',
-        to: '+14169318503'
+        from: '+17024302673',
+        to: '+14169955011'
       })
       .then(message => console.log(message.sid))
   }
