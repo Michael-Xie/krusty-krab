@@ -3,7 +3,7 @@ const express = require('express');
 module.exports = (db) => {
   const router  = express.Router();
   const order   = require('../models/order')(db)
-  const sendSMS = require('../models/twilioSMS')()
+  const sendSMS = require('../models/twilioSMS')(db)
 
   router.get("/", (req, res) => {
     // if the customer is not logged in, redirect to login.
@@ -40,7 +40,7 @@ module.exports = (db) => {
   });
 
   router.post("/place_order", (req, res) => {
-    sendSMS.sendSMS()
+    //sendSMS.sendSMS()
     // create a new order.
     const customer_id = req.session.customer_id
     order.createOrder(customer_id)
@@ -55,16 +55,20 @@ module.exports = (db) => {
                   order.postOrderItems(resOne.id, resTwo.id, req.body.quantity[i])
                     .then(resThree => console.log('success'))
                     .catch(err => console.log(err))
+                    // retrieve the order data then send out the sms.
+                    .then(() => order.getOrderData(resOne.id).then())
                 }
               })
               .catch(err => console.log(err))
           }
         }
       })
-        .catch(err => console.log(err))
+      .catch(err => console.log(err))
+    res.render("place_order")
     })
-    //req.body.item.forEach(items => console.log(item))
-    // generate and order
+
+  router.get("/place_order", (req, res) => {
+  })
 
   return router;
 };
