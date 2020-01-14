@@ -10,6 +10,13 @@ h4 {
 
 #main-container {
     padding-top: 6vw;
+    background-color: black;
+
+    // background-image: url("../images/photo.jpg");
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
+    // position: fixed;
 }
 
 #left-column {
@@ -20,9 +27,10 @@ h4 {
   width: 17vw;
   position: fixed;
   left: 0;
-  padding-top: 6vh;
+  padding-top: 11vh;
   padding-left: 3vw;
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(63, 63, 63);
+  opacity: 98%;
 }
 
 #categories {
@@ -55,6 +63,9 @@ h4 {
 #all-items {
   display: flex;
   width: 60vw;
+    background-color: whitesmoke;
+  opacity: 93%;
+  //overflow: scroll;
 }
 
 .food-image {
@@ -63,14 +74,17 @@ h4 {
 
 #table-items {
   margin-top: 6vh;
+  padding-left: 1.7vw;
+  padding-right: 1.7vw;
 }
 
 #scroll-link {
   font-weight: 500;
-  margin-bottom: 3.5vh;
-  color: #505050;
-  font-weight: 350;
-  font-size: 2.5vh;
+  margin-bottom: 3vh;
+  color: #8d8d8d;
+  font-weight: 600;
+  font-size: 2vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
@@ -86,4 +100,18 @@ h4 {
 
 #bar:hover {
   color: rgb(3, 72, 182);
+}
+
+div#menu-title {
+  font-size: 4vh;
+  font-weight: 700;
+}
+
+.subtitles {
+  font-size: 1.8vw;
+}
+
+.single-item {
+  display: flex;
+  flex-direction: column;
 }

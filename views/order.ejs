@@ -19,8 +19,7 @@
     <script>
     $(document).ready(function(){
     // Add smooth scrolling to all links
-    $(".scroll").on('click', function(event) {
-
+    $(".scroll").click(function(event) {
       // Make sure this.hash has a value before overriding default behavior
       if (this.hash !== "") {
         // Prevent default anchor click behavior
@@ -31,9 +30,9 @@
 
         // Using jQuery's animate() method to add smooth page scroll
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top - 100
-        }, 800, function(){
+        $('#all-items').animate({
+          scrollTop: $(hash).offset().top
+        }, 1000, function(){
 
         });
       } // End if
@@ -49,33 +48,33 @@
     </header>
     <main id="main-container">
       <div id="left-column">
-        <a class="scroll" id="scroll-link" href="#patties"><span id="bar">|</span>Patties</a>
-        <a class="scroll" id="scroll-link" href="#meals"><span id="bar">|</span>Meals</a>
-        <a class="scroll" id="scroll-link" href="#snacks"><span id="bar">|</span>Snacks</a>
-        <a class="scroll" id="scroll-link" href="#other"><span id="bar">|</span>Other</a>
-        <a class="scroll" id="scroll-link" href="#drinks"><span id="bar">|</span>Drinks</a>
+        <a class="scroll" id="scroll-link" href="#patties"><span id="bar">|</span>PATTIES</a>
+        <a class="scroll" id="scroll-link" href="#meals"><span id="bar">|</span>MEALS</a>
+        <a class="scroll" id="scroll-link" href="#snacks"><span id="bar">|</span>SNACKS</a>
+        <a class="scroll" id="scroll-link" href="#other"><span id="bar">|</span>OTHER</a>
+        <a class="scroll" id="scroll-link" href="#drinks"><span id="bar">|</span>DRINKS</a>
         </div>
       </div>
       <div id="menu-items">
         <div id="all-items">
-        <table class="table" id="table-items">
-          <thead>
-            <tr>
-              <th>Menu</th>
-            </tr>
-          </thead>
-          <tbody>
-            <th id='patties'>PATTIES</th>
+        <div class="table" id="table-items">
+          <div id="menu-title">MR. KRAB'S MENU</div>
+          <div class="subtitles" id='patties'>PATTIES</div>
             <% for(let item in menuItems['1']) { %>
             <% let idName = menuItems['1'][item].name.replace(/ /g, '-').toLowerCase(); %>
-            <tr id=<%= idName %>>
-              <th><img class="food-image" src=<%= menuItems['1'][item].image_url %>></th>
-              <th id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></th>
-              <th id=<%= idName + '-price' %>><%= menuItems['1'][item].price %></th>
-              <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
-              <th><%= menuItems['1'][item].description %></th>
-            </tr>
+            <div class="single-item" id=<%= idName %>>
+              <div class="important-details">
+                <div id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></div>
+                <div id=<%= idName + '-price' %>><%= menuItems['1'][item].price %></div>
+                <div><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></div>
+              </div>
+              <div class="extra-details">
+                <div><img class="food-image" src=<%= menuItems['1'][item].image_url %>></div>
+                <div><%= menuItems['1'][item].description %></div>
+              </div>
+            </div>
             <% } %>
+            <table>
             <th id="meals">MEALS</th>
             <% for(let item in menuItems['2']) { %>
               <% let idName = menuItems['2'][item].name.replace(/ /g, '-').toLowerCase(); %>
@@ -87,7 +86,7 @@
                 <th><%= menuItems['2'][item].description %></th>
               </tr>
               <% } %>
-            </div>
+            </th>
             <th id="snacks">SNACKS</th>
             <% for(let item in menuItems['3']) { %>
               <% let idName = menuItems['3'][item].name.replace(/ /g, '-').toLowerCase(); %>
@@ -121,8 +120,8 @@
                 <th><%= menuItems['4'][item].description %></th>
               </tr>
               <% } %>
-          </tbody>
-        </table>
+          </table>
+        </div>
       </div>
       </div>
       <div id="cart-container">
