@@ -23,7 +23,7 @@ module.exports = (db) => {
         if (!customer) {
           res.status(404).send("ERROR: Please enter valid username/password");
         } else {
-          req.session.customer_id = customer
+          req.session.customer_id = customer.rows[0].id
           res.redirect('/order');
         }
       })
