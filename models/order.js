@@ -29,6 +29,14 @@ module.exports = (db) => {
     `, [customer_id])
       .then(result => result.rows[0])
 
-
-  return { getMenuItems, postOrderItems, getMenuIds, createOrder };
+  const getOrderData = (order_id) =>
+      db.query(`
+        SELECT * FROM order_items
+        JOIN menu_items ON menu_items.id = menu_item_id
+        JOIN orders ON orders.id = order_id
+        JOIN customers ON customers.id = orders.customer_id
+        WHERE order_items.order_id = $1;
+      `, [order_id])
+        .then(result => console.log(result.rows))
+  return { getMenuItems, postOrderItems, getMenuIds, createOrder, getOrderData};
 }

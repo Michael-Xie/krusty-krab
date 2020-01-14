@@ -74,7 +74,8 @@
               <th><img class="food-image" src=<%= menuItems['1'][item].image_url %>></th>
               <th id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></th>
               <th id=<%= idName + '-price' %>><%= menuItems['1'][item].price %></th>
-              <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
+              <th><a class="item-btn" id=<%= idName + '-btn' %>
+                  href=<%= "add_item/:" + idName %>>+</a></th>
               <th><%= menuItems['1'][item].description %></th>
             </tr>
             <% } %>

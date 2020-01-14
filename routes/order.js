@@ -43,20 +43,27 @@ module.exports = (db) => {
     //sendSMS.sendSMS()
     // create a new order.
     const customer_id = req.session.customer_id
+    // go through the process of creating an order and filling it with items.
     order.createOrder(customer_id)
       .then(resOne => {
         if (resOne) {
           // get menu_item id for each item then add it to the order_items.
-          for (let i = 0; i < req.body.item.length; i++) {
+          let item_length = req.body.item.length
+          if (!Array.isArray(req.body.item))
+            item_length = 1 
+          for (let i = 0; i < item_length; i++) {
             order.getMenuIds(req.body.item[i])
               .then(resTwo => {
                 // adding to order items.
                 if (resTwo) {
                   order.postOrderItems(resOne.id, resTwo.id, req.body.quantity[i])
-                    .then(resThree => console.log('success'))
+                    .then(resThree => {
+                      console.log(item_length, i)
+                      if (i === (item_length - 1))
+                        order.getOrderData(resOne.id).then().catch(err => console.log(err))
+                    })
                     .catch(err => console.log(err))
                     // retrieve the order data then send out the sms.
-                    .then(() => order.getOrderData(resOne.id).then())
                 }
               })
               .catch(err => console.log(err))
@@ -64,11 +71,7 @@ module.exports = (db) => {
         }
       })
       .catch(err => console.log(err))
-    res.render("place_order")
     })
-
-  router.get("/place_order", (req, res) => {
-  })
 
   return router;
 };

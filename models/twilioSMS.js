@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = (db) => {
   const sendSMS = () => {
     const accountSID = process.env.ACCOUNT_SID
     const authToken  = process.env.AUTH_TOKEN
@@ -17,12 +17,12 @@ module.exports = () => {
 
     app.post('/sms', (req, res) => {
       const twiml = new MessagingResponse()
-      
       twiml.message('The Robots are coming! Head for the hills')
 
       res.writeHead(200, {'Content-Type': 'text/xml'})
       res.end(twiml.toString())
     */
+
   return { sendSMS }
 }
 
