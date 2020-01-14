@@ -4,7 +4,10 @@ html {
 }
 
 body {
-  background-color: #2c9dbf;
+  background-color: rgb(212, 212, 212);
+  background-image: url("../images/photo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .main-body {
@@ -12,24 +15,24 @@ body {
   justify-content: center;
   height: 100%;
   margin-top: 2em;
+  padding-top: 13vh;
 }
 
 .login-title {
   display: flex;
   justify-content: left;
   font-size: 3vw;
-  margin-bottom: 1em;
-  color: white;
+  margin-bottom: 4.5vh;
+  color: black;
 }
 
 form {
   display: flex;
   justify-content: left;
   flex-flow: column;
-  background-color: white;
+  background-color: transparent;
   width: 64vw;
   align-items: center;
-  padding-top: 3.5em;
 }
 
 form-elements {
@@ -52,20 +55,20 @@ form-elements {
   color: transparent;
 }
 
-.submit-form-button {
-}
-
 .form-border {
   display: flex;
-  border: 5px solid white;
+  border: 3px solid black;
   padding-top: 4em;
-  padding-bottom: 4em;
-  width: 88%;
+  padding-bottom: 2em;
+  width: 75%;
   justify-content: left;
+  background: lightgrey;
   align-items: center;
   margin-top: 2.2em;
   flex-direction: column;
   align-content: center;
+  background-color: lightgrey;
+  opacity: 97%;
 }
 
 span {
