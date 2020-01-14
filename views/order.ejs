@@ -14,6 +14,34 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/cart.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    // Add smooth scrolling to all links
+    $(".scroll").on('click', function(event) {
+
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+    });
+    </script>
   </head>
 
   <body>
@@ -24,12 +52,11 @@
     <main id="main-container">
       <div id="left-column">
         <h4>Categories</h4>
-        <div id="categories">
-          <a href="#go-here" style="margin-top: 5px;">Patties</button>
-          <a href="" style="margin-top: 5px;">Meals</button>
-          <a href="" style="margin-top: 5px;">Snacks</button>
-          <a href="" style="margin-top: 5px;">Other</button>
-          <a href="" style="margin-top: 5px;">Drinks</button></a>
+        <a class="scroll" href="#patties">Patties</a>
+        <a class="scroll" href="#meals">Meals</a>
+        <a class="scroll" href="#snacks">Snacks</a>
+        <a class="scroll" href="#other">Other</a>
+        <a class="scroll" href="#drinks">Drinks</a>
         </div>
       </div>
       <div id="menu-items">
@@ -42,16 +69,62 @@
             </tr>
           </thead>
           <tbody>
-            <% for(let item in menuItems) { %>
-            <% let idName = menuItems[item].name.replace(/ /g, '-').toLowerCase(); %>
+            <th id='patties'>PATTIES</th>
+            <% for(let item in menuItems['1']) { %>
+            <% let idName = menuItems['1'][item].name.replace(/ /g, '-').toLowerCase(); %>
             <tr id=<%= idName %>>
-              <th><img class="food-image" src=<%= menuItems[item].image_url %>></div></th>
-              <th id=<%= idName + '-name' %>><%= menuItems[item].name %></th>
-              <th id=<%= idName + '-price' %>><%= menuItems[item].price %></th>
+              <th><img class="food-image" src=<%= menuItems['1'][item].image_url %>></th>
+              <th id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></th>
+              <th id=<%= idName + '-price' %>><%= menuItems['1'][item].price %></th>
               <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
-              <th><%= menuItems[item].description %></th>
+              <th><%= menuItems['1'][item].description %></th>
             </tr>
             <% } %>
+            <th id="meals">MEALS</th>
+            <% for(let item in menuItems['2']) { %>
+              <% let idName = menuItems['2'][item].name.replace(/ /g, '-').toLowerCase(); %>
+              <tr id=<%= idName %>>
+                <th><img class="food-image" src=<%= menuItems['2'][item].image_url %>>></th>
+                <th id=<%= idName + '-name' %>><%= menuItems['2'][item].name %></th>
+                <th id=<%= idName + '-price' %>><%= menuItems['2'][item].price %></th>
+                <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
+                <th><%= menuItems['2'][item].description %></th>
+              </tr>
+              <% } %>
+            </div>
+            <th id="snacks">SNACKS</th>
+            <% for(let item in menuItems['3']) { %>
+              <% let idName = menuItems['3'][item].name.replace(/ /g, '-').toLowerCase(); %>
+              <tr id=<%= idName %>>
+                <th><img class="food-image" src=<%= menuItems['3'][item].image_url %>></th>
+                <th id=<%= idName + '-name' %>><%= menuItems['3'][item].name %></th>
+                <th id=<%= idName + '-price' %>><%= menuItems['3'][item].price %></th>
+                <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
+                <th><%= menuItems['3'][item].description %></th>
+              </tr>
+              <% } %>
+            <th id="other">OTHER</th>
+            <% for(let item in menuItems['5']) { %>
+              <% let idName = menuItems['5'][item].name.replace(/ /g, '-').toLowerCase(); %>
+              <tr id=<%= idName %>>
+                <th><img class="food-image" src=<%= menuItems['5'][item].image_url %>></th>
+                <th id=<%= idName + '-name' %>><%= menuItems['5'][item].name %></th>
+                <th id=<%= idName + '-price' %>><%= menuItems['5'][item].price %></th>
+                <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
+                <th><%= menuItems['5'][item].description %></th>
+              </tr>
+              <% } %>
+            <th id="drinks">DRINKS</th>
+            <% for(let item in menuItems['4']) { %>
+              <% let idName = menuItems['4'][item].name.replace(/ /g, '-').toLowerCase(); %>
+              <tr id=<%= idName %>>
+                <th><img class="food-image" src=<%= menuItems['4'][item].image_url %>></div></th>
+                <th id=<%= idName + '-name' %>><%= menuItems['4'][item].name %></th>
+                <th id=<%= idName + '-price' %>><%= menuItems['4'][item].price %></th>
+                <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
+                <th><%= menuItems['4'][item].description %></th>
+              </tr>
+              <% } %>
           </tbody>
         </table>
       </div>

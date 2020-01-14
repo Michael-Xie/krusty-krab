@@ -32,7 +32,7 @@ module.exports = (db) => {
         }
         console.log(newObj);
         console.log(categoryInfo);
-        //res.render('order', {menuItems: newObj, categoryInfo: categoryInfo});
+        res.render('order', {menuItems: newObj, categoryInfo: categoryInfo});
         // example of getting values
         // for (item of result) {
         //   console.log(item.category_name);
