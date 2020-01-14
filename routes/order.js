@@ -41,6 +41,7 @@ module.exports = (db) => {
   });
 
   router.post("/place_order", (req, res) => {
+    sendSMS.sendSMS()
     // create a new order.
     const customer_id = req.session.customer_id
     order.createOrder(customer_id)
@@ -65,7 +66,6 @@ module.exports = (db) => {
     })
     //req.body.item.forEach(items => console.log(item))
     // generate and order
-    //sendSMS.sendSMS()
 
   return router;
 };

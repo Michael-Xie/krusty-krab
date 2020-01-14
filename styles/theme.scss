@@ -151,14 +151,10 @@ sup {
 }
 
 a {
-  color: #007bff;
-  text-decoration: none;
-  background-color: transparent;
 }
 
 a:hover {
-  color: #0056b3;
-  text-decoration: underline;
+  //color: rgb(3, 72, 182);
 }
 
 a:not([href]) {
@@ -1889,13 +1885,13 @@ pre code {
 }
 
 .form-control::placeholder {
-  color:rgb(233, 199, 4);
-  opacity: 70%;
+  color: rgb(53, 109, 200);
+  opacity: 80%;
 }
 
 
 .form-control:disabled, .form-control[readonly] {
-  background-color: #e9ecef;
+  background-color: #e2e2e2;
   opacity: 1;
 }
 
@@ -2336,7 +2332,7 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: black;
-    text-shadow: 2px 2px #e9c704;
+    text-shadow: 1px 1px rgb(3, 72, 182);
     background-color: transparent;
     width: 4em;
     height: 3em;
@@ -4081,7 +4077,7 @@ input[type="button"].btn-block {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-size: 2.25rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -4335,7 +4331,7 @@ input[type="button"].btn-block {
 
 .navbar-light .navbar-nav .nav-link {
   color: black;
-  text-shadow: 2px 2px rgb(233, 199, 4);
+  text-shadow: 1px 1px rgb(3, 72, 182);
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
