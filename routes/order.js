@@ -14,11 +14,10 @@ module.exports = (db) => {
 
     order.getMenuItems()
       .then(result => {
-        // console.log(result)
+        console.log("from query:", result);
         let categoryInfo = {};
         let newObj = {};
         for (let obj of result) {
-          console.log("from loop:", obj);
           if(!categoryInfo[obj.category_id]) {
             categoryInfo[obj.category_id] = obj.category_name;
           }
