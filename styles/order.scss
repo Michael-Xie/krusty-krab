@@ -1,8 +1,11 @@
 h4 {
-  left: 6vw;
-  height: 4vh;
-  position: relative;
-  padding-left: -8vh;
+  font-weight: 400;
+  font-size: 1.8vw;
+  margin-bottom: 2vh;
+}
+
+#menu-name {
+  margin-left: 3vh;
 }
 
 #main-container {
@@ -11,14 +14,15 @@ h4 {
 
 #left-column {
   display: flex;
-  justify-content: left;
+  align-items: left;
   flex-direction: column;
-  border-right: 1px solid black;
   height: 100vh;
   width: 17vw;
   position: fixed;
-  top: 8vh;
   left: 0;
+  padding-top: 6vh;
+  padding-left: 3vw;
+  background-color: rgb(228, 228, 228);
 }
 
 #categories {
@@ -30,7 +34,7 @@ h4 {
 
 #menu-items {
   height: 100vh;
-  width: 87vw;
+  width: 95vw;
   display: flex;
   justify-content: center;
 }
@@ -44,12 +48,13 @@ h4 {
   width: 20vw;
   position: fixed;
   right: 0;
-  top: 8vh;
+  top: 12vh;
+  padding-top: 4vh;
 }
 
 #all-items {
   display: flex;
-  width: 53vw;
+  width: 60vw;
 }
 
 .food-image {
@@ -58,4 +63,27 @@ h4 {
 
 #table-items {
   margin-top: 6vh;
+}
+
+#scroll-link {
+  font-weight: 500;
+  margin-bottom: 3.5vh;
+  color: #505050;
+  font-weight: 350;
+  font-size: 2.5vh;
+}
+
+
+#scroll-link:hover {
+    text-decoration: none;
+    font-weight: 700;
+    color: rgb(3, 72, 182);
+}
+
+#bar {
+  margin-right: 1vw;
+}
+
+#bar:hover {
+  color: rgb(3, 72, 182);
 }
