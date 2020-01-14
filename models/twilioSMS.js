@@ -1,12 +1,23 @@
 module.exports = (db) => {
-  const sendSMS = () => {
+  const sendSMS = (result) => {
     const accountSID = process.env.ACCOUNT_SID
     const authToken  = process.env.AUTH_TOKEN
     const client     = require('twilio')(accountSID, authToken)
-    console.log("here")
+    let message    = "Krust Krab Confirmation"
+    const getEstTime = () => {
+      const cookTimes = []
+      result.forEach(row => {
+        cookTimes.push(row.cook_time_millisec)
+      })
+      message += "Order Number: #" + result[0].order_id + "\n"
+      message += "Est. order time: " + (Math.max(...cookTimes) / 1000) + " seconds"
+    }
+
+    getEstTime()
+  
     client.messages
       .create({
-        body: 'Order has been placed :)',
+        body: `${message}`,
         from: '+17024302673',
         to: '+14169955011'
       })
