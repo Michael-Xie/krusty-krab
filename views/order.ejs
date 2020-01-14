@@ -16,24 +16,22 @@
     <script type="text/javascript" src="/scripts/cart.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script>
     $(document).ready(function(){
     // Add smooth scrolling to all links
-    $(".scroll").click(function(event) {
+    $(".scroll").on('click', function(event) {
       // Make sure this.hash has a value before overriding default behavior
       if (this.hash !== "") {
         // Prevent default anchor click behavior
         event.preventDefault();
-
         // Store hash
         var hash = this.hash;
-
         // Using jQuery's animate() method to add smooth page scroll
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-        $('#all-items').animate({
-          scrollTop: $(hash).offset().top
-        }, 1000, function(){
-
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top - 100
+        }, 800, function(){
         });
       } // End if
     });
@@ -64,13 +62,15 @@
             <% let idName = menuItems['1'][item].name.replace(/ /g, '-').toLowerCase(); %>
             <div class="single-item" id=<%= idName %>>
               <div class="important-details">
-                <div id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></div>
-                <div id=<%= idName + '-price' %>><%= menuItems['1'][item].price %></div>
+                <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></div>
+                <div class="price-add">
+                <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['1'][item].price / 100 %></div>
                 <div><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></div>
+                </div>
               </div>
               <div class="extra-details">
-                <div><img class="food-image" src=<%= menuItems['1'][item].image_url %>></div>
-                <div><%= menuItems['1'][item].description %></div>
+                <img class="food-image" src=<%= menuItems['1'][item].image_url %>>
+                <div class="description"><%= menuItems['1'][item].description %></div>
               </div>
             </div>
             <% } %>
