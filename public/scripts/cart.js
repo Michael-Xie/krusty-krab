@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("hello")
   $(".item-btn").click(function(event) {
     // get the id of the .item-btn parent element and check the name.
     const $itemId    = $(this).parent().parent().parent().parent().attr("id")
@@ -57,5 +56,12 @@ $(document).ready(function() {
       let $currentTotal = Number(($('#price-total').html())) + Number($itemPrice)
       $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
     })
+  })
+
+  // overr
+  $("#cart-confirm-btn").on("click", function(event) {
+    event.preventDefault()
+    $(this).css("display", "none")
+    $("#cart-submit-btn").css("display", "block")
   })
 })

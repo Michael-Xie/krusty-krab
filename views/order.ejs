@@ -47,13 +47,12 @@
     </header>
     <main id="main-container">
       <div id="left-column">
-        <div id="bg-image-left"></div>
-        <a class="scroll" id="scroll-link" href="#patties"><span id="bar">|</span>PATTIES</a>
-        <a class="scroll" id="scroll-link" href="#meals"><span id="bar">|</span>MEALS</a>
-        <a class="scroll" id="scroll-link" href="#snacks"><span id="bar">|</span>SNACKS</a>
-        <a class="scroll" id="scroll-link" href="#other"><span id="bar">|</span>OTHER</a>
-        <a class="scroll" id="scroll-link" href="#drinks"><span id="bar">|</span>DRINKS</a>
-        </div>
+        <a class="scroll" id="scroll-link" href="#patties">PATTIES</a>
+        <a class="scroll" id="scroll-link" href="#meals">MEALS</a>
+        <a class="scroll" id="scroll-link" href="#snacks">SNACKS</a>
+        <a class="scroll" id="scroll-link" href="#other">OTHER</a>
+        <a class="scroll" id="scroll-link" href="#drinks">DRINKS</a>
+        </div
       </div>
       <div id="menu-items">
         <div id="all-items">
@@ -149,19 +148,17 @@
       </div>
       </div>
       <div id="cart-container">
-        <h4>Cart</h4>
-        <form id="cart-form" action="/order/order_summary" method="POST">
+        <form id="cart-form" action="/order_summary" method="POST">
           <div id="item-container">
           </div>
           <div id="price-container">
             Total <div>$<span name="price" id="price-total">0</span></div>
           </div>
           <div id="cart-submit">
-            <input type="submit" name="submit" value="place order"
-                                               id="cart-submit-btn">
+            <input type="button" value="Confirm Order" class="cart-btn" id="cart-confirm-btn">
+            <input type="submit" value="Place Order"   class="cart-btn" id="cart-submit-btn">
           </div>
         </form>
-
       </div>
     </main>
 
