@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(26, 73, 204);
+  background-color: rgb(24, 24, 24);
   padding: 2%;
+  width: 100%;
 }
 
 #item-container a {
@@ -21,7 +22,7 @@
 }
 
 #item-container .item-name {
-  width: 100%;  
+  width: 100%;
 }
 
 #item-container {
