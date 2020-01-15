@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
+
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/order_summary"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -25,6 +27,15 @@
     </header>
     <section id="summary-main">
       <h2> Order Summary #<%=result[0].order_id %></h2>
+      <form method="POST" action="/">
+        <!-- use ajax to post -->
+        <input type="text" value="credit-number" placeholder="Enter credit card
+        number">
+        <input type="text" value="credit-name" placeholder="Enter name on
+        card">
+        <input type="text" value="credit-number" placeholder="
+        number">
+      </form>
     </section>
   </body>
 </html>
