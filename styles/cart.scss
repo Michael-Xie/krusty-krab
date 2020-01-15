@@ -3,12 +3,14 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: rgb(26, 73, 204);
+  padding: 2%;
 }
 
 #item-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 5%;
 }
 
 #price-container {
@@ -17,15 +19,21 @@
   justify-content: space-between;
 }
 
-.item-div, .quantity-div {
+.item-div {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 2%;
+}
+
+.quantity-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 5%;
 }
 
 .item-subtract, .item-add {
-  cursor: pointer;
-  display: inline-block;
-  vertical-align: top;
   color: white;
   width: 30px;
   height: 30px;
@@ -33,5 +41,9 @@
   text-align: center;
   border-radius: 50%;
   background-color: black;
-  background-clip: padding-box;
+}
+
+.cart-submit {
+  display: flex;
+  justify-content: center;
 }
