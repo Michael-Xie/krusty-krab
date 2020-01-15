@@ -57,4 +57,11 @@ $(document).ready(function() {
       $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
     })
   })
+
+  // over
+  $("#cart-confirm-btn").on("click", function(event) {
+    event.preventDefault()
+    $(this).css("display", "none")
+    $("#cart-submit-btn").css("display", "block")
+  })
 })

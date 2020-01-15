@@ -41,7 +41,7 @@ $(document).ready(function() {
       }
       $(`#${$BtnId}-value`).attr("value", $value)
 
-      let $currentTotal = Number(($('#price-total').html())) + Number($itemPrice)
+      let $currentTotal = Number(($('#price-total').html())) - Number($itemPrice)
       $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
     })
 
@@ -56,5 +56,12 @@ $(document).ready(function() {
       let $currentTotal = Number(($('#price-total').html())) + Number($itemPrice)
       $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
     })
+  })
+
+  // overr
+  $("#cart-confirm-btn").on("click", function(event) {
+    event.preventDefault()
+    $(this).css("display", "none")
+    $("#cart-submit-btn").css("display", "block")
   })
 })

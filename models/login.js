@@ -6,15 +6,14 @@ module.exports = (db) => {
     // if password = true (match) else (no match)
     db.query(`SELECT * FROM customers WHERE username = $1;`, [user])
       .then(result => {
-        console.log(result.rows[0])
-        if (result) {
+        if (result.rows.length !== 0) {
           let password = result.rows[0].password
           password = bcrypt.compareSync(pass, password)
           // if password checks-out return the id of the user (for cookie)
           if (password)
             return result.rows[0].id
         }
-        return result
+        return false;
       })
   return { verifyLogin }
 }
