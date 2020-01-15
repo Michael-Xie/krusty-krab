@@ -4,19 +4,25 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/order">ORDER | </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">LOGIN |</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/register"> REGISTER  </a>
-        </li>
-      </ul>
+    <% if (customer) {%>
+      <form class="form-inline" action="/logout" method="POST">
+        Welcome <%= username %>
+        <a class="nav-item nav-link" href="/order">ORDER |</a>
+        <a class="nav-item nav-link" href="/logout">LOGOUT</a>
+      </form>
+      <% } else { %>
+      <ul class="navbar-nav justify-content-right">
+        <a class="nav-item nav-link" href="/order">ORDER | </a>
+        <a class="nav-item nav-link" href="/login">LOGIN |</a>
+        <a class="nav-item nav-link" href="/register"> REGISTER  </a>
+    </ul>
+
+      <% } %>
     </div>
+
   </nav>
 
 </header>
