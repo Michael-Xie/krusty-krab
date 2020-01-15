@@ -9,7 +9,7 @@ h4 {
 }
 
 #main-container {
-    padding-top: 6.8em;
+    padding-top: 5em;
     background-color: black;
 
     // background-image: url("../images/photo.jpg");
@@ -28,7 +28,11 @@ h4 {
   padding-top: 7em;
   padding-left: 3%;
   background-color: #3f3f3f;
-  opacity: 98%;
+  background-image: url("../images/spongebob-patty.jpg");
+  background-repeat: no-repeat;
+  background-position-x: -650px;
+  background-size: cover;
+  opacity: 30%;
   height: 100%;
 }
 
@@ -102,11 +106,14 @@ h4 {
 div#menu-title {
   font-size: 240%;
   font-weight: 700;
+  padding-left: 4.1em;
+  margin-bottom: 0.5em;
 }
 
 .subtitles {
   font-size: 170%;
   margin-bottom: 0.7%;
+  font-weight: 700;
 }
 
 .single-item {

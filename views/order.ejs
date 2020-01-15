@@ -30,7 +30,7 @@
         // Using jQuery's animate() method to add smooth page scroll
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         $('html, body').animate({
-          scrollTop: $(hash).offset().top - 100
+          scrollTop: $(hash).offset().top - 150
         }, 800, function(){
         });
       } // End if
@@ -46,6 +46,7 @@
     </header>
     <main id="main-container">
       <div id="left-column">
+        <div id="bg-image-left"></div>
         <a class="scroll" id="scroll-link" href="#patties"><span id="bar">|</span>PATTIES</a>
         <a class="scroll" id="scroll-link" href="#meals"><span id="bar">|</span>MEALS</a>
         <a class="scroll" id="scroll-link" href="#snacks"><span id="bar">|</span>SNACKS</a>
@@ -56,7 +57,7 @@
       <div id="menu-items">
         <div id="all-items">
         <div class="table" id="table-items">
-          <div id="menu-title">MR. KRAB'S MENU</div>
+          <div id="menu-title">KRUSTY KRAB MENU</div>
           <div class="subtitles" id='patties'>PATTIES</div>
             <% for(let item in menuItems['1']) { %>
             <% let idName = menuItems['1'][item].name.replace(/ /g, '-').toLowerCase(); %>
