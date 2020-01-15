@@ -67,7 +67,9 @@
                 <div class="price-add">
                 <div class="price" id=<%= idName + '-price' %>><%= '$' + 
                   Number(menuItems['1'][item].price / 100).toFixed(2) %></div>
-                <div><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></div>
+                <!-- overriding href to  -->
+                <div><a class="item-btn" id=<%= idName + '-btn' %>
+                    href="javascript:null" onclick="return null">+</a></div>
                 </div>
               </div>
               <div class="extra-details">
@@ -135,7 +137,7 @@
             $<span name="price" id="price-total">0</span>
           </div>
           <div id="cart-submit">
-            <input type="submit" name="submit" value="place order"
+            <input type="submit" name="submit" value="order-summary"
                                                id="cart-submit-btn">
         </form>
 

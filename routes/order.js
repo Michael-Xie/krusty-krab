@@ -46,7 +46,7 @@ module.exports = (db) => {
       });
   });
 
-  router.post("/place_order", (req, res) => {
+  router.post("/order_summary", (req, res) => {
     // create a new order.
     let isChecked = false;
     const customer_id = req.session.customer_id
@@ -94,6 +94,8 @@ module.exports = (db) => {
       })
       .catch(err => console.log(err))
     })
+
+  // order summary route.
 
   return router;
 };
