@@ -194,13 +194,13 @@ div#menu-title {
   flex-direction: column;
 }
 
-#payment-form #payment-submit:hover {
+#payment-form .payment-btn:hover {
   color: #fff;
   background: #000;
-  border: none;
+  border-color: #000;
 }
 
-#payment-form #payment-submit:focus {
+#payment-form .payment-btn:focus {
   outline: none;
 }
 
