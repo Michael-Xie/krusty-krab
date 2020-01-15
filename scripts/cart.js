@@ -41,7 +41,7 @@ $(document).ready(function() {
       }
       $(`#${$BtnId}-value`).attr("value", $value)
 
-      let $currentTotal = Number(($('#price-total').html())) + Number($itemPrice)
+      let $currentTotal = Number(($('#price-total').html())) - Number($itemPrice)
       $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
     })
 
