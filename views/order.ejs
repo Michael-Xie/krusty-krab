@@ -65,7 +65,8 @@
               <div class="important-details">
                 <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></div>
                 <div class="price-add">
-                <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['1'][item].price / 100 %></div>
+                <div class="price" id=<%= idName + '-price' %>><%= '$' + 
+                  Number(menuItems['1'][item].price / 100).toFixed(2) %></div>
                 <div><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></div>
                 </div>
               </div>
