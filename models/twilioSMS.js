@@ -3,7 +3,7 @@ module.exports = (db) => {
     const accountSID = process.env.ACCOUNT_SID
     const authToken  = process.env.AUTH_TOKEN
     const client     = require('twilio')(accountSID, authToken)
-    let message    = "Krust Krab Confirmation"
+    let message    = "Krust Krab Confirmation\n"
     const getEstTime = () => {
       const cookTimes = []
       result.forEach(row => {

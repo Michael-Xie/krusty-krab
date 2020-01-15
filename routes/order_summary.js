@@ -34,7 +34,7 @@ module.exports = (db) => {
                         .then(result => {
                           if ((result.length === item_length || item_length === 1) && !isChecked) {
                             // send the SMS
-                            // sendSMS.sendSMS(result)
+                            sendSMS.sendSMS(result)
                             res.render("order_summary", { result, customer: customer_id, username: req.session.username })
                             // will disable any further SMS messages.
                             isChecked = true;

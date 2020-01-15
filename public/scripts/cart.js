@@ -63,53 +63,62 @@ $(document).ready(function() {
   })
 
   $("#cart-confirm-btn").on("click", function(event) {
-    event.preventDefault()
-    $("#cart-form").fadeOut(1000)
-    setTimeout( () => {
-      $("#payment-form").fadeIn(500).css("display", "flex")
-    }, 1000)
-  }) 
-  
-  $("#go-back-btn").on("click", function(event) {
-    event.preventDefault()
-    $("#payment-form").fadeOut(1000)
-    setTimeout( () => {
-      $("#cart-form").fadeIn(500).css("display", "flex")
-    }, 1000)
-  }) 
+    $("#cart-confirm-btn").css("display", "none")
+    $("#cart-submit-btn").css("display", "block")
+  })
 
   // on the submission of the payment information, validate the form.
-  $("#payment-form").on("submit", function(event) {
+  $("#cart-submit-btn").on("click", function(event) {
     event.preventDefault()
     $.ajax({
       url: "/order",
       method: "GET",
       data: $("#payment-form").serialize(),
       success: function() {
+        // track the success of each input.
+        const $success    = []
         // get the form data through accessing ids.
+        const $cardName   = $("#credit-name").val()
         const $cardNumber = $("#credit-number").val()
         const $cardExpire = $("#credit-expire").val()
         const $cardCSV    = $("#credit-csv").val()
+        // ensure that the name field is not empty
+        if ($cardName) {
+          $("#credit-name").css("color", "#0f0")
+          $success.push(true)
+        }
+        else {
+          $("#credit-name").css("color", "#f00")
+        }
         // ensure that all the credit number is properly formatted.
         if (Number($cardNumber) 
           && !($cardNumber).includes(".")
-          && $cardNumber.length === 16)
-          $("#credit-number").css("background", "#0f0")
-        else
-          $("#credit-number").css("background", "#f00")
+          && $cardNumber.length === 16) {
+          $("#credit-number").css("color", "#0f0")
+          $success.push(true)
+        } else {
+          $("#credit-number").css("color", "#f00")
+        }
         // ensure that the expiry data is properly formatted
         $month = Number($cardExpire.slice(0, 2))
         $year  = Number($cardExpire.slice(3, 5))
-        if ($month > 0 && $month < 13 && $year > 20)
-          $("#credit-expire").css("background", "#0f0")
-        else
-          $("#credit-expire").css("background", "#f00")
+        if ($month > 0 && $month < 13 && $year > 20) {
+          $("#credit-expire").css("color", "#0f0")
+          $success.push(true)
+        } else {
+          $("#credit-expire").css("color", "#f00")
         // ensure that the CSV is a 3 digit number.
-        if ($cardCSV >= 100)
-          $("#credit-csv").css("background", "#0f0")
-        else
-          $("#credit-csv").css("background", "#f00")
+        } if ($cardCSV >= 100) {
+          $("#credit-csv").css("color", "#0f0")
+          $success.push(true)
+        } else {
+          $("#credit-csv").css("color", "#f00")
+        }
 
+        // if we have a success array of length 4,
+        // we are clear to post the order!
+        if ($success.length === 4)
+          $("#cart-form").submit()
       }
     })
   })
