@@ -30,7 +30,7 @@
         // Using jQuery's animate() method to add smooth page scroll
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         $('html, body').animate({
-          scrollTop: $(hash).offset().top - 150
+          scrollTop: $(hash).offset().top - 100
         }, 800, function(){
         });
       } // End if
@@ -67,10 +67,9 @@
                 <div class="price-add">
                 <div class="price" id=<%= idName + '-price' %>><%= '$' + 
                   Number(menuItems['1'][item].price / 100).toFixed(2) %></div>
-                <!-- overriding href to  -->
                 <div><a class="item-btn" id=<%= idName + '-btn' %>
                     href="javascript:null" onclick="return null">+</a></div>
-                </div>
+               </div>
               </div>
               <div class="extra-details">
                 <img class="food-image" src=<%= menuItems['1'][item].image_url %>>
@@ -79,52 +78,73 @@
             </div>
             <% } %>
             <table>
-            <th id="meals">MEALS</th>
+            <div class="subtitles" id="meals">MEALS</div>
             <% for(let item in menuItems['2']) { %>
               <% let idName = menuItems['2'][item].name.replace(/ /g, '-').toLowerCase(); %>
-              <tr id=<%= idName %>>
-                <th><img class="food-image" src=<%= menuItems['2'][item].image_url %>>></th>
-                <th id=<%= idName + '-name' %>><%= menuItems['2'][item].name %></th>
-                <th id=<%= idName + '-price' %>><%= menuItems['2'][item].price %></th>
-                <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
-                <th><%= menuItems['2'][item].description %></th>
-              </tr>
+              <div class="single-item" id=<%= idName %>>
+                <div class="important-details">
+                  <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['2'][item].name %></div>
+                  <div class="price-add">
+                  <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['2'][item].price / 100 %></div>
+                  <div><a class="item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
+                  </div>
+                </div>
+                <div class="extra-details">
+                <img class="food-image" src=<%= menuItems['2'][item].image_url %>>
+                <div class="description"><%= menuItems['2'][item].description %></div>
+                </div>
+              </div>
               <% } %>
-            </th>
-            <th id="snacks">SNACKS</th>
+            <div class="subtitles" id="snacks">SNACKS</div>
             <% for(let item in menuItems['3']) { %>
               <% let idName = menuItems['3'][item].name.replace(/ /g, '-').toLowerCase(); %>
-              <tr id=<%= idName %>>
-                <th><img class="food-image" src=<%= menuItems['3'][item].image_url %>></th>
-                <th id=<%= idName + '-name' %>><%= menuItems['3'][item].name %></th>
-                <th id=<%= idName + '-price' %>><%= menuItems['3'][item].price %></th>
-                <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
-                <th><%= menuItems['3'][item].description %></th>
-              </tr>
+              <div class="single-item" id=<%= idName %>>
+                <div class="important-details">
+                  <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['3'][item].name %></div>
+                  <div class="price-add">
+                    <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['3'][item].price / 100 %></div>
+                    <div><a class="item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
+                  </div>
+                </div>
+                <div class="extra-details">
+                <img class="food-image" src=<%= menuItems['3'][item].image_url %>>
+                <div class="description"><%= menuItems['3'][item].description %></div>
+              </div>
+              </div>
               <% } %>
-            <th id="other">OTHER</th>
+            <div class="subtitles" id="other">OTHER</div>
             <% for(let item in menuItems['5']) { %>
               <% let idName = menuItems['5'][item].name.replace(/ /g, '-').toLowerCase(); %>
-              <tr id=<%= idName %>>
-                <th><img class="food-image" src=<%= menuItems['5'][item].image_url %>></th>
-                <th id=<%= idName + '-name' %>><%= menuItems['5'][item].name %></th>
-                <th id=<%= idName + '-price' %>><%= menuItems['5'][item].price %></th>
-                <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
-                <th><%= menuItems['5'][item].description %></th>
-              </tr>
+              <div class="single-item" id=<%= idName %>>
+                <div class="important-details">
+                  <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['5'][item].name %></div>
+                  <div class="price-add">
+                    <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['5'][item].price / 100 %></div>
+                    <div><a class="item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
+                  </div>
+                </div>
+                <div class="extra-details">
+                  <img class="food-image" src=<%= menuItems['5'][item].image_url %>>
+                  <div class="description"><%= menuItems['5'][item].description %><>
+                </div>
+              </div>
               <% } %>
-            <th id="drinks">DRINKS</th>
+            <div class="subtitles" id="drinks">DRINKS</div>
             <% for(let item in menuItems['4']) { %>
               <% let idName = menuItems['4'][item].name.replace(/ /g, '-').toLowerCase(); %>
-              <tr id=<%= idName %>>
-                <th><img class="food-image" src=<%= menuItems['4'][item].image_url %>></div></th>
-                <th id=<%= idName + '-name' %>><%= menuItems['4'][item].name %></th>
-                <th id=<%= idName + '-price' %>><%= menuItems['4'][item].price %></th>
-                <th><a class="item-btn" id=<%= idName + '-btn' %> href="#">+</a></th>
-                <th><%= menuItems['4'][item].description %></th>
-              </tr>
+              <div class="single-item" id=<%= idName %>>
+                <div class="important-details">
+                  <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['4'][item].name %></div>
+                  <div class="price-add">
+                    <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['4'][item].price / 100 %></div>
+                    <div><a class="item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
+                  </div>
+                </div>
+                <div class="extra-details">
+                  <img class="food-image" src=<%= menuItems['4'][item].image_url %>></div>
+                  <div class="description"><%= menuItems['4'][item].description %></th>
+                </div>
               <% } %>
-          </table>
         </div>
       </div>
       </div>
