@@ -8,9 +8,13 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <% if (customer) {%>
-        Welcome <%= username %>
+      <ul class="navbar-nav justify-content-right">
+
+        <p>Welcome <%= username %></p c>
+
         <a class="nav-item nav-link" href="/order">ORDER |</a>
         <a class="nav-item nav-link" href="/logout">LOGOUT</a>
+      </ul>
       <% } else { %>
       <ul class="navbar-nav justify-content-right">
         <a class="nav-item nav-link" href="/order">ORDER | </a>
