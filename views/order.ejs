@@ -26,7 +26,7 @@
         // Prevent default anchor click behavior
         event.preventDefault();
         // Store hash
-        var hash = this.hash;
+        const hash = this.hash;
         // Using jQuery's animate() method to add smooth page scroll
         // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
         $('html, body').animate({
@@ -65,9 +65,11 @@
               <div class="important-details">
                 <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></div>
                 <div class="price-add">
-                <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['1'][item].price / 100 %></div>
-                <div><a class="item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
-                </div>
+                <div class="price" id=<%= idName + '-price' %>><%= '$' + 
+                  Number(menuItems['1'][item].price / 100).toFixed(2) %></div>
+                <div><a class="item-btn" id=<%= idName + '-btn' %>
+                    href="javascript:null" onclick="return null">+</a></div>
+               </div>
               </div>
               <div class="extra-details">
                 <img class="food-image" src=<%= menuItems['1'][item].image_url %>>
@@ -148,7 +150,7 @@
       </div>
       <div id="cart-container">
         <h4>Cart</h4>
-        <form id="cart-container" action="/order/place_order" method="POST">
+        <form id="cart-container" action="/order/order_summary" method="POST">
           <div id="item-container">
           </div>
           <div id="price-container">
