@@ -76,8 +76,8 @@ h4 {
 
 #table-items {
   margin-top: 6%;
-  padding-left: 1.7%;
-  padding-right: 1.7%;
+  padding-left: 3.7%;
+  padding-right: 3.7%;
 }
 
 #scroll-link {
@@ -106,8 +106,11 @@ h4 {
 div#menu-title {
   font-size: 240%;
   font-weight: 700;
-  padding-left: 4.1em;
+  width: 100%;
+  display: flex;
   margin-bottom: 0.5em;
+  justify-content: center;
+
 }
 
 .subtitles {
@@ -131,11 +134,10 @@ div#menu-title {
 
 .price-add {
   display: flex;
-  flex-direction: row;
   align-items: center;
   font-size: 128%;
-  justify-content: flex-end;
-  width: 13%;
+  justify-content: space-between;
+  width: 14%;
 }
 
 .item-add {
@@ -167,9 +169,11 @@ div#menu-title {
   width: 66%;
   margin-left: 2%;
   font-weight: 250;
-  font-size: 119%;
+  font-size: 109%;
 }
 
 .price {
-  padding-right: 22%;
+  display: flex;
+  justify-content: flex-end;
+  width: 51%;
 }
