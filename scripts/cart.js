@@ -1,9 +1,10 @@
 $(document).ready(function() {
+  console.log("hello")
   $(".item-btn").click(function(event) {
     // get the id of the .item-btn parent element and check the name.
-    const $itemId    = $(this).parent().parent().attr("id")
-    const $itemName  = $(this).parent().parent().children(`#${$itemId}-name`).html()
-    const $itemPrice = $(this).parent().parent().children(`#${$itemId}-price`).html()
+    const $itemId    = $(this).parent().parent().parent().parent().attr("id")
+    const $itemName  = $(this).parent().parent().siblings(`#${$itemId}-name`).html()
+    const $itemPrice = ($(this).parent().siblings(`#${$itemId}-price`).html()).slice(1)
     // check if the .item-btn parent id exists in the cart already.
     if (!$(`#${$itemId}-cart`).length) {
       const $itemDiv      = $("<div>", {"class": "item-div", "id": `${$itemId}-cart`})
@@ -24,8 +25,8 @@ $(document).ready(function() {
     }
 
     // alter the price. -- move into a function
-    let $currentTotal = Number($('#price-total').html()) + (Number($itemPrice) / 100)
-    $('#price-total').html(`${$currentTotal.toFixed(2)}`)
+    let $currentTotal = Number(($('#price-total').html())) + Number($itemPrice)
+    $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
 
     $(`#${$itemId}-subtract`).click(function(event) {
       const $BtnId = $(this).parent().attr("id")
@@ -41,8 +42,8 @@ $(document).ready(function() {
       }
       $(`#${$BtnId}-value`).attr("value", $value)
 
-      let $currentTotal = Number($('#price-total').html()) - (Number($itemPrice) / 100)
-      $('#price-total').html(`${$currentTotal.toFixed(2)}`)
+      let $currentTotal = Number(($('#price-total').html())) + Number($itemPrice)
+      $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
     })
 
     $(`#${$itemId}-add`).click(function(event) {
@@ -53,8 +54,8 @@ $(document).ready(function() {
       $value++
       $(`#${$BtnId}-value`).attr("value", $value)
 
-      let $currentTotal = Number($('#price-total').html()) + (Number($itemPrice) / 100)
-      $('#price-total').html(`${$currentTotal.toFixed(2)}`)
+      let $currentTotal = Number(($('#price-total').html())) + Number($itemPrice)
+      $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
     })
   })
 })
