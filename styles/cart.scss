@@ -22,27 +22,37 @@
 }
 
 #item-container .item-name {
-  width: 100%;
+  width: 68%;
+  text-align: left;
+  padding-left: 5%;
+  font-weight: 300;
+  font-size: 110%;
 }
 
 #item-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 5%;
+  background: whitesmoke;
 }
 
 #price-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 5%;
+  margin: 4%;
+  margin-bottom: 5%;
+  font-weight: 700;
 }
 
 .item-div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-bottom: 2%;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  padding-right: 5%;
 }
 
 .quantity-div {
@@ -65,4 +75,12 @@
 .cart-submit {
   display: flex;
   justify-content: center;
+}
+
+.cart-btn {
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-size: 123%;
+  font-weight: 900;
 }
