@@ -68,7 +68,7 @@
                 <div class="price-add">
                 <div class="price" id=<%= idName + '-price' %>><%= '$' +
                   Number(menuItems['1'][item].price / 100).toFixed(2) %></div>
-                <div><a class="item-add" id=<%= idName + '-btn' %>
+                <div><a class="item-add item-btn" id=<%= idName + '-btn' %>
                     href="javascript:null" onclick="return null">+</a></div>
                 </div>
               </div>
@@ -78,7 +78,6 @@
               </div>
             </div>
             <% } %>
-            <table>
             <div class="subtitles" id="meals">MEALS</div>
             <% for(let item in menuItems['2']) { %>
               <% let idName = menuItems['2'][item].name.replace(/ /g, '-').toLowerCase(); %>
@@ -87,7 +86,7 @@
                   <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['2'][item].name %></div>
                   <div class="price-add">
                   <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['2'][item].price / 100 %></div>
-                  <div><a class="item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
+                  <div><a class="item-btn item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
                   </div>
                 </div>
                 <div class="extra-details">
@@ -104,7 +103,7 @@
                   <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['3'][item].name %></div>
                   <div class="price-add">
                     <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['3'][item].price / 100 %></div>
-                    <div><a class="item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
+                    <div><a class="item-btn item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
                   </div>
                 </div>
                 <div class="extra-details">
@@ -121,7 +120,7 @@
                   <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['5'][item].name %></div>
                   <div class="price-add">
                     <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['5'][item].price / 100 %></div>
-                    <div><a class="item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
+                    <div><a class="item-btn item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
                   </div>
                 </div>
                 <div class="extra-details">
@@ -138,7 +137,7 @@
                   <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['4'][item].name %></div>
                   <div class="price-add">
                     <div class="price" id=<%= idName + '-price' %>><%= '$' + menuItems['4'][item].price / 100 %></div>
-                    <div><a class="item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
+                    <div><a class="item-btn item-add" id=<%= idName + '-btn' %> href="#">+</a></div>
                   </div>
                 </div>
                 <div class="extra-details">
