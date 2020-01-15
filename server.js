@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieSession({
   name: "session",
-  keys: ["customer_id", "key2"]
+  keys: ["customer_id"]
 }));
 
 app.use("/styles", sass({

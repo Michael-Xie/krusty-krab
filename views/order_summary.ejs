@@ -22,20 +22,10 @@
 
   <body>
     <header>
-      <%-
-       include('./partials/nav.ejs') %>
+      <%- include('./partials/nav.ejs') %>
     </header>
     <section id="summary-main">
       <h2> Order Summary #<%=result[0].order_id %></h2>
-      <form method="POST" action="/">
-        <!-- use ajax to post -->
-        <input type="text" value="credit-number" placeholder="Enter credit card
-        number">
-        <input type="text" value="credit-name" placeholder="Enter name on
-        card">
-        <input type="text" value="credit-number" placeholder="
-        number">
-      </form>
     </section>
   </body>
 </html>

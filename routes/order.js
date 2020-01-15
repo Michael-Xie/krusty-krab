@@ -35,7 +35,12 @@ module.exports = (db) => {
             newObj[obj.category_id] = [formattedObj]
           }
         }
-        res.render('order', {menuItems: newObj, categoryInfo: categoryInfo, customer: req.session.customer_id, username: req.session.username});
+        res.render('order', {
+          menuItems: newObj, 
+          categoryInfo: categoryInfo, 
+          customer: req.session.customer_id, 
+          username: req.session.username
+        });
       });
   });
 
