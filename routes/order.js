@@ -14,7 +14,6 @@ module.exports = (db) => {
 
     order.getMenuItems()
       .then(result => {
-        console.log("from query:", result);
         let categoryInfo = {};
         let newObj = {};
         for (let obj of result) {
@@ -36,13 +35,7 @@ module.exports = (db) => {
             newObj[obj.category_id] = [formattedObj]
           }
         }
-        console.log(newObj);
-        console.log(categoryInfo);
         res.render('order', {menuItems: newObj, categoryInfo: categoryInfo});
-        // example of getting values
-        // for (item of result) {
-        //   console.log(item.category_name);
-        // }
       });
   });
 

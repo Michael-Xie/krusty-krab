@@ -6,6 +6,24 @@
   padding: 2%;
 }
 
+#item-container a {
+  height: 20%;
+}
+
+#item-container input {
+  border: none;
+  background: none;
+  text-align: center;
+}
+
+#item-container .item-value {
+  width: 10%;
+}
+
+#item-container .item-name {
+  width: 100%;  
+}
+
 #item-container {
   display: flex;
   flex-direction: column;
