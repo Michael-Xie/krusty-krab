@@ -21,11 +21,11 @@ module.exports = (db) => {
             categoryInfo[obj.category_id] = obj.category_name;
           }
           let formattedObj = {
-            id: obj.id, 
-            name: obj.name, 
-            cook_time_millisec: obj.cook_time_millisec, 
-            description: obj.description, 
-            image_url: obj.image_url, 
+            id: obj.id,
+            name: obj.name,
+            cook_time_millisec: obj.cook_time_millisec,
+            description: obj.description,
+            image_url: obj.image_url,
             price: obj.price
           };
 
@@ -35,10 +35,10 @@ module.exports = (db) => {
             newObj[obj.category_id] = [formattedObj]
           }
         }
-        res.render('order', {menuItems: newObj, categoryInfo: categoryInfo});
+        res.render('order', {menuItems: newObj, categoryInfo: categoryInfo, customer: req.session.customer_id, username: req.session.username});
       });
   });
-
+  
   return router;
 };
 
