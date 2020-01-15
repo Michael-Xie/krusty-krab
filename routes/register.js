@@ -1,6 +1,32 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 
+const formatPhoneNumber = (sms) => {
+  const regex = /^[\+]?([0-9]{1})?[-]?[(]?([0-9]{3})[)]?[-\s\.]?([0-9]{3})[-\s\.]?([0-9]{4,6})$/im;
+  const maxLength = 2 + 3 + 7;
+  const result = sms.match(regex);
+
+  if (sms.length <= maxLength && result) {
+    console.log(result);
+    const countryCode = result[1];
+    const areaCode = result[2];
+    const phoneNumber = result[3] + result[4];
+    let phoneArr = ['+'];
+    if (areaCode && phoneNumber) {
+      if (!countryCode) {
+        phoneArr.push('1');
+      } else {
+        phoneArr.push(countryCode);
+      }
+      phoneArr.push(areaCode);
+      phoneArr.push(phoneNumber);
+      return phoneArr.join('');
+    }
+    return '';
+  }
+  return '';
+}
+
 module.exports = (db) => {
   const router = express.Router();
   const register = require('../models/register')(db)
