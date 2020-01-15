@@ -64,4 +64,9 @@ $(document).ready(function() {
     $(this).css("display", "none")
     $("#cart-submit-btn").css("display", "block")
   })
+
+  $("#cart-submit-btn").on("click", function(event) {
+    // create a form and append it to beneath the order form.
+    
+  })
 })

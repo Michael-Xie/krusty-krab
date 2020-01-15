@@ -58,10 +58,14 @@ $(document).ready(function() {
     })
   })
 
-  // overr
+  // over
   $("#cart-confirm-btn").on("click", function(event) {
     event.preventDefault()
     $(this).css("display", "none")
     $("#cart-submit-btn").css("display", "block")
+  })
+
+  $("#cart-submit-btn").on("click", function(event) {
+    alert("hello world")
   })
 })

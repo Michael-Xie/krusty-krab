@@ -188,6 +188,22 @@ div#menu-title {
   display: none;
 }
 
+#payment-form {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+}
+
+#payment-form #payment-submit:hover {
+  color: #fff;
+  background: #000;
+  border: none;
+}
+
+#payment-form #payment-submit:focus {
+  outline: none;
+}
+
 div#bg-left {
   display: flex;
   display: flex;
