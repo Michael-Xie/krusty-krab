@@ -66,7 +66,7 @@
               <div class="important-details">
                 <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></div>
                 <div class="price-add">
-                <div class="price" id=<%= idName + '-price' %>><%= '$' + 
+                <div class="price" id=<%= idName + '-price' %>><%= '$' +
                   Number(menuItems['1'][item].price / 100).toFixed(2) %></div>
                 <!-- overriding href to  -->
                 <div><a class="item-btn" id=<%= idName + '-btn' %>
@@ -131,7 +131,7 @@
       </div>
       <div id="cart-container">
         <h4>Cart</h4>
-        <form id="cart-container" action="/order/order_summary" method="POST">
+        <form id="cart-form" action="/order/order_summary" method="POST">
           <div id="item-container">
           </div>
           <div id="price-container">
@@ -140,6 +140,7 @@
           <div id="cart-submit">
             <input type="submit" name="submit" value="place order"
                                                id="cart-submit-btn">
+          </div>
         </form>
 
       </div>
