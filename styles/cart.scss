@@ -5,11 +5,13 @@
   background-color: rgb(24, 24, 24);
   padding: 2%;
   width: 100%;
+  margin: -3.8em;
 }
 
 #item-container a {
   height: 20%;
 }
+
 
 #item-container input {
   border: none;
@@ -34,6 +36,7 @@
   flex-direction: column;
   justify-content: space-between;
   background: whitesmoke;
+  border-radius: 4px;
 }
 
 #price-container {
