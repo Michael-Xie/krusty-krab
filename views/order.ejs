@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/nav.css">
     <link rel="stylesheet" type="text/css" href="/styles/theme.css">
     <link rel="stylesheet" type="text/css" href="/styles/order.css">
+    <link rel="stylesheet" type="text/css" href="/styles/cart.css">
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -65,11 +66,11 @@
               <div class="important-details">
                 <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></div>
                 <div class="price-add">
-                <div class="price" id=<%= idName + '-price' %>><%= '$' + 
+                <div class="price" id=<%= idName + '-price' %>><%= '$' +
                   Number(menuItems['1'][item].price / 100).toFixed(2) %></div>
-                <div><a class="item-btn" id=<%= idName + '-btn' %>
+                <div><a class="item-add" id=<%= idName + '-btn' %>
                     href="javascript:null" onclick="return null">+</a></div>
-               </div>
+                </div>
               </div>
               <div class="extra-details">
                 <img class="food-image" src=<%= menuItems['1'][item].image_url %>>
@@ -150,15 +151,16 @@
       </div>
       <div id="cart-container">
         <h4>Cart</h4>
-        <form id="cart-container" action="/order/order_summary" method="POST">
+        <form id="cart-form" action="/order/order_summary" method="POST">
           <div id="item-container">
           </div>
           <div id="price-container">
-            $<span name="price" id="price-total">0</span>
+            Total <div>$<span name="price" id="price-total">0</span></div>
           </div>
           <div id="cart-submit">
             <input type="submit" name="submit" value="place order"
                                                id="cart-submit-btn">
+          </div>
         </form>
 
       </div>
