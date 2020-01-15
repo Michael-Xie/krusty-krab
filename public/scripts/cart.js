@@ -11,11 +11,15 @@ $(document).ready(function() {
       const $itemQuantity = $("<input>", {"class": "item-value", "id": `${$itemId}-cart-value`, "name": "quantity", "value": "1"})
       const $removeItem   = $("<a>", {"class": "item-subtract", "id": `${$itemId}-subtract`, "href": "#"}).html(`- `)
       const $addItem      = $("<a>", {"class": "item-add", "id": `${$itemId}-add`, "href": "#"}).html(` +`)
+
+      const $quantityDiv = $("<div>", {"class": "quantity-div", "id": `${$itemId}-quantity`});
+      $quantityDiv.append($removeItem);
+      $quantityDiv.append($itemQuantity);
+      $quantityDiv.append($addItem);
+
       // append all the data to the item-container.
-      $itemDiv.append($copyItemName)
-      $itemDiv.append($removeItem)
-      $itemDiv.append($itemQuantity)
-      $itemDiv.append($addItem)
+      $itemDiv.append($copyItemName);
+      $itemDiv.append($quantityDiv);
       $(`#item-container`).append($itemDiv)
       // hide the itemBtn
       $(`#${$itemId}-btn`).fadeOut(1000)
