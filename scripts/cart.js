@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("hello")
   $(".item-btn").click(function(event) {
     // get the id of the .item-btn parent element and check the name.
     const $itemId    = $(this).parent().parent().parent().parent().attr("id")
