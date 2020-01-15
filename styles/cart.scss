@@ -3,13 +3,15 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: rgb(24, 24, 24);
-  padding: 2%;
+  padding: 1em;
   width: 100%;
+  margin: -4em;
 }
 
 #item-container a {
   height: 20%;
 }
+
 
 #item-container input {
   border: none;
@@ -34,6 +36,10 @@
   flex-direction: column;
   justify-content: space-between;
   background: whitesmoke;
+  border-radius: 4px;
+  overflow: auto;
+  overflow-x: hidden;
+  max-height: 216px;
 }
 
 #price-container {
@@ -44,6 +50,7 @@
   margin: 4%;
   margin-bottom: 5%;
   font-weight: 700;
+  font-size: 20px;
 }
 
 .item-div {
