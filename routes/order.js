@@ -21,11 +21,11 @@ module.exports = (db) => {
             categoryInfo[obj.category_id] = obj.category_name;
           }
           let formattedObj = {
-            id: obj.id, 
-            name: obj.name, 
-            cook_time_millisec: obj.cook_time_millisec, 
-            description: obj.description, 
-            image_url: obj.image_url, 
+            id: obj.id,
+            name: obj.name,
+            cook_time_millisec: obj.cook_time_millisec,
+            description: obj.description,
+            image_url: obj.image_url,
             price: obj.price
           };
 
@@ -35,7 +35,7 @@ module.exports = (db) => {
             newObj[obj.category_id] = [formattedObj]
           }
         }
-        res.render('order', {menuItems: newObj, categoryInfo: categoryInfo});
+        res.render('order', {menuItems: newObj, categoryInfo: categoryInfo, customer: req.session.customer_id, username: req.session.username});
       });
   });
 
@@ -50,7 +50,7 @@ module.exports = (db) => {
           // get menu_item id for each item then add it to the order_items.
           let item_length = req.body.item.length
           if (!Array.isArray(req.body.item))
-            item_length = 1 
+            item_length = 1
           // iterate through each item in the order_items.
           for (let i = 0; i < item_length; i++) {
             // do a check to see how many items we need to pass through

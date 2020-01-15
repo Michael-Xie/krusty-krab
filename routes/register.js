@@ -11,7 +11,7 @@ module.exports = (db) => {
       res.redirect('/')
       return;
     }
-    res.render('register')
+    res.render('register', {customer: req.session.customer_id, username: req.session.username})
   });
 
  // POST /register - Register new user
@@ -21,7 +21,7 @@ module.exports = (db) => {
     const username = req.body.username
     const password = bcrypt.hashSync(req.body.password, 10)
     const sms      = req.body.cellNumber
-    
+
     // call verify username from our models.
     register.verifyUsername(username)
       .then(result => {

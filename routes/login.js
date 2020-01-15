@@ -9,7 +9,7 @@ module.exports = (db) => {
       res.redirect("/order");
       return;
     }
-    let templateVars = {};
+    let templateVars = {customer: req.session.customer_id, username: req.session.username};
     res.render("login", templateVars);
   });
 
@@ -17,13 +17,14 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     const username = req.body.username
     const password = req.body.password
-    
+
     login.verifyLogin(username, password)
       .then(customer => {
         if (!customer) {
           res.status(404).send("ERROR: Please enter valid username/password");
         } else {
           req.session.customer_id = customer
+          req.session.username = username
           res.redirect('/order');
         }
       })
