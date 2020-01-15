@@ -1,17 +1,16 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-light fixed-top">
     <a class="navbar-brand" href="/"><strong>THE KRUSTY KRAB</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-    <% if (customer) {%>
+      <% if (customer) {%>
       <ul class="navbar-nav justify-content-right">
-
-        <p>Welcome <%= username %></p c>
-
+        Welcome <%= username %>
         <a class="nav-item nav-link" href="/order">ORDER |</a>
         <a class="nav-item nav-link" href="/logout">LOGOUT</a>
       </ul>
@@ -19,8 +18,8 @@
       <ul class="navbar-nav justify-content-right">
         <a class="nav-item nav-link" href="/order">ORDER | </a>
         <a class="nav-item nav-link" href="/login">LOGIN |</a>
-        <a class="nav-item nav-link" href="/register"> REGISTER  </a>
-    </ul>
+        <a class="nav-item nav-link" href="/register"> REGISTER </a>
+      </ul>
 
       <% } %>
     </div>

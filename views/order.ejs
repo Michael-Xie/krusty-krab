@@ -13,8 +13,11 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/cart.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script>
     $(document).ready(function(){
     // Add smooth scrolling to all links
@@ -144,6 +147,7 @@
       </div>
       </div>
       <div id="cart-container">
+        <!-- order form -->
         <form id="cart-form" action="/order_summary" method="POST">
           <div id="item-container">
           </div>
@@ -155,11 +159,18 @@
             <input type="submit" value="Place Order"   class="cart-btn" id="cart-submit-btn">
           </div>
         </form>
+        <!-- payment form -->
+        <form id="payment-form" action="/" method="POST">
+          <!-- override with ajax -->
+          <input type="text" name="credit-name" placeholder="Name on Card">
+          <input type="text" name="credit-number" placeholder="16 digit number" maxlength="16">
+          <input type="text" name="credit-exp" placeholder="Expiration (mm/yy)" maxlength="5">
+          <input type="text" name="credit-csv" placeholder="CSV" maxlength="3">
+          <input type="submit" name="submit" value="Verify" id="payment-submit">
+        </form>
       </div>
     </main>
-    <footer>
-      <%- include('./partials/bootstrap-links.ejs') %>
-    </footer>
+
   </body>
 </html>
 

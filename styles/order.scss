@@ -189,6 +189,22 @@ div#menu-title {
   display: none;
 }
 
+#payment-form {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+}
+
+#payment-form .payment-btn:hover {
+  color: #fff;
+  background: #000;
+  border-color: #000;
+}
+
+#payment-form .payment-btn:focus {
+  outline: none;
+}
+
 div#bg-left {
   display: flex;
   display: flex;
