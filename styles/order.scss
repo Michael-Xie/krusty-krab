@@ -127,8 +127,22 @@ div#menu-title {
   flex-direction: row;
   align-items: center;
   font-size: 128%;
-  justify-content: right;
+  justify-content: flex-end;
   width: 13%;
+}
+
+.item-add {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 28px;
+  height: 28px;
+  font: 30px/1 Arial,sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  background-color: black;
+  background-clip: padding-box;
 }
 
 .extra-details {
@@ -150,5 +164,5 @@ div#menu-title {
 }
 
 .price {
-  padding-right: 21%;
+  padding-right: 22%;
 }
