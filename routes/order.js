@@ -21,7 +21,14 @@ module.exports = (db) => {
           if(!categoryInfo[obj.category_id]) {
             categoryInfo[obj.category_id] = obj.category_name;
           }
-          let formattedObj = {id: obj.id, name: obj.name, cook_time_millisec: obj.cook_time_millisec, description: obj.description, image_url: obj.image_url, price: obj.price};
+          let formattedObj = {
+            id: obj.id, 
+            name: obj.name, 
+            cook_time_millisec: obj.cook_time_millisec, 
+            description: obj.description, 
+            image_url: obj.image_url, 
+            price: obj.price
+          };
 
           if (newObj[obj.category_id]) {
             newObj[obj.category_id].push(formattedObj)
@@ -40,8 +47,8 @@ module.exports = (db) => {
   });
 
   router.post("/place_order", (req, res) => {
-    //sendSMS.sendSMS()
     // create a new order.
+    let isChecked = false;
     const customer_id = req.session.customer_id
     // go through the process of creating an order and filling it with items.
     order.createOrder(customer_id)
@@ -51,16 +58,31 @@ module.exports = (db) => {
           let item_length = req.body.item.length
           if (!Array.isArray(req.body.item))
             item_length = 1 
+          // iterate through each item in the order_items.
           for (let i = 0; i < item_length; i++) {
-            order.getMenuIds(req.body.item[i])
+            // do a check to see how many items we need to pass through
+            // if its one, do not send the index.
+            let menu_ids = req.body.item[i]
+            if (!Array.isArray(req.body.item))
+              menu_ids = req.body.item
+            // since all we have is the menu names, we need to get the ids.
+            order.getMenuIds(menu_ids)
               .then(resTwo => {
                 // adding to order items.
                 if (resTwo) {
                   order.postOrderItems(resOne.id, resTwo.id, req.body.quantity[i])
                     .then(resThree => {
-                      console.log(item_length, i)
-                      if (i === (item_length - 1))
-                        order.getOrderData(resOne.id).then().catch(err => console.log(err))
+                      order.getOrderData(resOne.id)
+                        .then(result => {
+                          if ((result.length === item_length || item_length === 1) && !isChecked) {
+                            // send the SMS
+                            sendSMS.sendSMS(result)
+                            // will disable any further SMS messages.
+                            isChecked = true;
+                            return Promise.reject("hehexd")
+                          }
+                      })
+                        .catch(err => console.log(err))
                     })
                     .catch(err => console.log(err))
                     // retrieve the order data then send out the sms.

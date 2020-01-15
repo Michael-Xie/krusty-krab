@@ -61,16 +61,6 @@
           <div class="subtitles" id='patties'>PATTIES</div>
             <% for(let item in menuItems['1']) { %>
             <% let idName = menuItems['1'][item].name.replace(/ /g, '-').toLowerCase(); %>
-            <!--
-            <tr id=<%= idName %>>
-              <th><img class="food-image" src=<%= menuItems['1'][item].image_url %>></th>
-              <th id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></th>
-              <th id=<%= idName + '-price' %>><%= menuItems['1'][item].price %></th>
-              <th><a class="item-btn" id=<%= idName + '-btn' %>
-                  href=<%= "add_item/:" + idName %>>+</a></th>
-              <th><%= menuItems['1'][item].description %></th>
-            </tr>
-            -->
             <div class="single-item" id=<%= idName %>>
               <div class="important-details">
                 <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></div>
