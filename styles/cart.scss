@@ -2,16 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(24, 24, 24);
+  background-color: black;
   padding: 1em;
   width: 100%;
-  margin: 10em;
 }
-
-#item-container a {
-  height: 20%;
-}
-
 
 #item-container input {
   border: none;
@@ -39,7 +33,7 @@
   border-radius: 4px;
   overflow: auto;
   overflow-x: hidden;
-  max-height: 216px;
+  max-height: 182px;
 }
 
 #price-container {
@@ -101,11 +95,10 @@
 input.payment-input {
   background: transparent;
   color: white;
-  height: 3em;
-  margin-bottom: 0.5em;
+  margin-bottom: 7%;
   border: none;
   border-bottom: 1px solid white;
   padding: -7em;
-  font-size: 18px;
+  font-size: 137%;
   font-weight: 200;
 }
