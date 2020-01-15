@@ -61,7 +61,6 @@ module.exports = (db) => {
           // iterate through each item in the order_items.
           for (let i = 0; i < item_length; i++) {
             // do a check to see how many items we need to pass through
-            // if its one, do not send the index.
             let menu_ids = req.body.item[i]
             if (!Array.isArray(req.body.item))
               menu_ids = req.body.item
@@ -76,10 +75,12 @@ module.exports = (db) => {
                         .then(result => {
                           if ((result.length === item_length || item_length === 1) && !isChecked) {
                             // send the SMS
-                            sendSMS.sendSMS(result)
+                            // sendSMS.sendSMS(result)
+                            console.log(result)
+                            res.render("order_summary", { result })
                             // will disable any further SMS messages.
                             isChecked = true;
-                            return Promise.reject("hehexd")
+                            return Promise.reject()
                           }
                       })
                         .catch(err => console.log(err))
