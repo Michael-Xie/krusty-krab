@@ -25,9 +25,9 @@ h4 {
   display: flex;
   background-image: url("../images/spongebob-patty.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 103em;
   background-attachment: fixed;
-  background-position-x: -670px;
+  background-position-x: -721px;
   height: 100%;
   flex-direction: column;
   width: 16em;
@@ -189,7 +189,6 @@ div#menu-title {
 }
 
 #payment-form {
-  display: none;
   width: 100%;
   flex-direction: column;
 }
