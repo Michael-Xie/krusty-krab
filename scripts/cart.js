@@ -10,8 +10,8 @@ $(document).ready(function() {
       const $itemDiv      = $("<div>", {"class": "item-div", "id": `${$itemId}-cart`})
       const $copyItemName = $("<input>", {"class": "item-name", "id": `${$itemId}-cart-name`, "name": "item", "value": `${$itemName}`})
       const $itemQuantity = $("<input>", {"class": "item-value", "id": `${$itemId}-cart-value`, "name": "quantity", "value": "1"})
-      const $removeItem   = $("<a>", {"class": "item-subtract", "id": `${$itemId}-subtract`, "href": "#"}).html(`- `)
-      const $addItem      = $("<a>", {"class": "item-add", "id": `${$itemId}-add`, "href": "#"}).html(` +`)
+      const $removeItem   = $("<a>", {"class": "item-subtract", "id": `${$itemId}-subtract`, "href": "javascript:null", "onclick": "return null"}).html(`-`)
+      const $addItem      = $("<a>", {"class": "item-add", "id": `${$itemId}-add`, "href": "javascript:null", "onclick": "return null"}).html(`+`)
       // append all the data to the item-container.
       $itemDiv.append($copyItemName)
       $itemDiv.append($removeItem)
