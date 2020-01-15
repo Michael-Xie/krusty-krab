@@ -61,11 +61,17 @@ $(document).ready(function() {
   // over
   $("#cart-confirm-btn").on("click", function(event) {
     event.preventDefault()
-    $(this).css("display", "none")
-    $("#cart-submit-btn").css("display", "block")
-  })
-
-  $("#cart-submit-btn").on("click", function(event) {
-    alert("hello world")
-  })
+    $("#cart-form").fadeOut(1000)
+    setTimeout( () => {
+      $("#payment-form").fadeIn(500).css("display", "flex")
+    }, 1000)
+  }) 
+  
+  $("#go-back-btn").on("click", function(event) {
+    event.preventDefault()
+    $("#payment-form").fadeOut(1000)
+    setTimeout( () => {
+      $("#cart-form").fadeIn(500).css("display", "flex")
+    }, 1000)
+  }) 
 })
