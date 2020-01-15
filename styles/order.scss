@@ -156,6 +156,12 @@ div#menu-title {
   width: 13%;
 }
 
+.item-add:hover {
+  text-decoration: none;
+  color: white;
+
+}
+
 .extra-details {
   display: flex;
   align-items: center;
@@ -211,3 +217,5 @@ div#bg-left {
   padding-top: 8em;
   padding-left: 3em;
 }
+
+
