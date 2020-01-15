@@ -58,19 +58,19 @@ $(document).ready(function() {
     })
   })
 
-  $("#cart-confirm-btn").on("click", function(event) {
-    event.preventDefault()
-    $("#cart-form").fadeOut(1000)
-    setTimeout( () => {
-      $("#payment-form").fadeIn(500).css("display", "flex")
-    }, 1000)
-  }) 
-  
-  $("#go-back-btn").on("click", function(event) {
-    event.preventDefault()
-    $("#payment-form").fadeOut(1000)
-    setTimeout( () => {
-      $("#cart-form").fadeIn(500).css("display", "flex")
-    }, 1000)
-  }) 
-})
+  // $("#cart-confirm-btn").on("click", function(event) {
+  //   event.preventDefault()
+  //   $("#cart-form").fadeOut(1000)
+  //   setTimeout( () => {
+  //     $("#payment-form").fadeIn(500).css("display", "flex")
+  //   }, 1000)
+  // })
+
+  // $("#go-back-btn").on("click", function(event) {
+  //   event.preventDefault()
+  //   $("#payment-form").fadeOut(1000)
+  //   setTimeout( () => {
+  //     $("#cart-form").fadeIn(500).css("display", "flex")
+  //   }, 1000)
+  // })
+ });

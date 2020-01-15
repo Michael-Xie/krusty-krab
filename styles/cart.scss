@@ -91,3 +91,21 @@
   font-size: 123%;
   font-weight: 900;
 }
+
+.pop-up-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em;
+}
+
+input.payment-input {
+  background: transparent;
+  color: white;
+  height: 3em;
+  margin-bottom: 0.5em;
+  border: none;
+  border-bottom: 1px solid white;
+  padding: -7em;
+  font-size: 18px;
+  font-weight: 200;
+}

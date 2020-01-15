@@ -165,19 +165,21 @@
             Total <div>$<span name="price" id="price-total">0</span></div>
           </div>
           <div id="cart-submit">
-            <input type="button" value="Confirm Order" class="cart-btn" id="cart-confirm-btn">
+                              <!-- payment form -->
+              <div class="collapse" id="payment-information">
+                <div class="pop-up-form">
+                  <form id="payment-form" action="/" method="POST">
+                    <!-- override with ajax -->
+                    <input class="payment-input" type="text" name="credit-name" placeholder="Name on Card">
+                    <input class="payment-input" type="text" name="credit-number" placeholder="16 digit number" maxlength="16">
+                    <input class="payment-input" type="text" name="credit-exp" placeholder="Expiration (mm/yy)" maxlength="5">
+                    <input class="payment-input" type="text" name="credit-csv" placeholder="CSV" maxlength="3">
+                  </form>
+                </div>
+            </div>
+            <input type="button" value="Confirm Order" class="cart-btn" id="cart-confirm-btn" data-toggle="collapse" href="#payment-information" role="button" aria-expanded="false" aria-controls="collapseExample">
             <input type="submit" value="Place Order" class="cart-btn" id="cart-submit-btn">
           </div>
-        </form>
-        <!-- payment form -->
-        <form id="payment-form" action="/" method="POST">
-          <!-- override with ajax -->
-          <input type="text" name="credit-name" placeholder="Name on Card">
-          <input type="text" name="credit-number" placeholder="16 digit number" maxlength="16">
-          <input type="text" name="credit-exp" placeholder="Expiration (mm/yy)" maxlength="5">
-          <input type="text" name="credit-csv" placeholder="CSV" maxlength="3">
-          <input type="submit" name="submit" class="payment-btn" value="Verify" id="payment-submit">
-          <input type="submit" name="submit" class="payment-btn" value="Back To Order" id="go-back-btn">
         </form>
       </div>
   </main>
