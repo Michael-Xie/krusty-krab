@@ -27,7 +27,8 @@ h4 {
   width: 15em;
   //padding-top: 3.3em;
   align-items: center;
-  background: whitesmoke;
+  background: white;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-wall.png");
 }
 
 #menu-scroll {
@@ -66,20 +67,21 @@ h4 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: white;
+  color: rgb(204, 204, 204);
   height: 100%;
   width: 24%;
-  background: whitesmoke;
+  background: white;
   position: fixed;
   right: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-wall.png");
 }
 
 #all-items {
   display: flex;
   width: 100%;
   background-color: whitesmoke;
-  opacity: 93%;
   margin-left: 15em;
+  background-image: url(https://www.transparenttextures.com/patterns/concrete-wall-2.png);
 }
 
 .food-image {
