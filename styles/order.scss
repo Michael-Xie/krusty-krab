@@ -53,6 +53,15 @@ h4 {
   justify-content: center;
 }
 
+#orders-in-progress {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  width: 100%;
+  background: #000;
+  color: #fff;
+}
+
 #cart-container {
   display: flex;
   align-items: center;
