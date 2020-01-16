@@ -63,13 +63,12 @@ const hashPasswords = require("./routes/hash")(db)
 app.use("/login", loginRoute);
 app.use("/logout", logoutRoute);
 app.use("/order", orderRoute);
+// #TODO remove this tomorrow
 app.use("/order_summary", orderSummary);
 app.use("/register", registerRoute);
 app.use("/hash", hashPasswords);
 
 // Note: mount other resources here, using the same pattern above
-
-
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
