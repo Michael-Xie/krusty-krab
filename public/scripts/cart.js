@@ -50,7 +50,12 @@ $(document).ready(function () {
 
       let $currentTotal = Number(($('#price-total').html())) - Number($itemPrice)
       $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
-    })
+
+      if (!$('#item-container').find('.item-div').length) {
+        $("#squidward-talking").show();
+
+      }
+      })
 
     $(`#${$itemId}-add`).click(function (event) {
       const $BtnId = $(this).parent().attr("id")
