@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  console.log("document is ready");
   $(".item-btn").click(function(event) {
     const verifyPayment = (formData) => {
       $cardNumber = $("#credit-name").val()
@@ -67,10 +68,16 @@ $(document).ready(function() {
       $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
     })
   })
-
   $("#cart-confirm-btn").on("click", function(event) {
-    $("#cart-confirm-btn").css("display", "none")
-    $("#cart-submit-btn").css("display", "block")
+    event.preventDefault();
+    // alert("checks item container for items on confirm order", $("#item-container").find(".item-div"));
+    console.log(event);
+    // if ($("#item-container").find(".item-div").length === 0) {
+
+    // }
+    // $("#cart-confirm-btn").css("display", "none")
+    // $("#cart-submit-btn").css("display", "block")
+
   })
 
   // on the submission of the payment information, validate the form.

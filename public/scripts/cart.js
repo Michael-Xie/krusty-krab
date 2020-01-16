@@ -65,8 +65,11 @@ $(document).ready(function() {
   })
 
   $("#cart-confirm-btn").on("click", function(event) {
-    $("#cart-confirm-btn").css("display", "none")
-    $("#cart-submit-btn").css("display", "block")
+    if ($('#item-container').find('.item-div').length) {
+      $("#cart-confirm-btn").css("display", "none")
+      $("#cart-submit-btn").css("display", "block")
+    }
+    $("payment-form").css("display", "none");
   })
 
   // on the submission of the payment information, validate the form.
