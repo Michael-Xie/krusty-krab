@@ -70,7 +70,7 @@ app.use("/hash", hashPasswords);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index", {customer: req.session.customer_id, username: req.session.username});
+  res.redirect("/login")
 });
 
 app.listen(PORT, () => {

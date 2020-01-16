@@ -7,16 +7,10 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     if (req.session.customer_id) {
       req.session = null
-      res.redirect("/")
+      res.redirect("/login")
       return
     }
-    /*
-    let templateVars = {}
-    res.render("login", templateVars)
-    /*
-     * talk to julie about how to handle this.
-    */
-    res.redirect("/")
+    res.redirect("/login")
   });
 
   return router;
