@@ -21,13 +21,12 @@ h4 {
 
 #left-column {
   position: fixed;
-  left: 0;
   display: flex;
   height: 100%;
   flex-direction: column;
-  width: 16em;
-  padding-left: 3em;
-  padding-top: 8em;
+  width: 15em;
+  padding-top: 7.3em;
+  align-items: center;
 }
 
 #categories {
@@ -75,11 +74,11 @@ h4 {
 }
 
 #scroll-link {
-  margin-bottom: 14%;
-  color: rgb(116, 116, 116);
+  margin-bottom: 7%;
+  color: #747474;
   font-weight: 500;
-  font-size: 137.5%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 167.5%;
+  font-family: Oswald, sans-serif;
 }
 
 
