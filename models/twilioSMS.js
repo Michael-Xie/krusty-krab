@@ -13,7 +13,11 @@ module.exports = (db) => {
     // take the max of the result and use it as the order duration.
     const orderDuration = Math.max(...cookTimes) / 1000
     message += "Order Number: #" + orderId + "\n"
-    message += "Est. order time: " + orderDuration + " seconds"
+    message += "Est. order time: " + orderDuration + " seconds\n"
+    // calculate the order total.
+    let total = 0
+    result.forEach(row => total += row.quantity * row.price)
+    message += "Order Total: $" + (total / 100)
   
     client.messages.create({
         body: `${message}`,
@@ -31,7 +35,6 @@ module.exports = (db) => {
             db.query(`
               UPDATE orders SET status = 't' WHERE id = $1;
             `, [orderId])
-              .then(result => console.log("updated DB"))
           })
         }, orderDuration * 1000)
       })
