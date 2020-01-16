@@ -1,22 +1,23 @@
-$(document).ready(function() {
-  $(".item-btn").click(function(event) {
+$(document).ready(function () {
+
+  $(".item-btn").click(function (event) {
     const verifyPayment = (formData) => {
       $cardNumber = $("#credit-name").val()
       alert($cardNumber)
     }
     // get the id of the .item-btn parent element and check the name.
-    const $itemId    = $(this).parent().parent().parent().parent().attr("id")
-    const $itemName  = $(this).parent().parent().siblings(`#${$itemId}-name`).html()
+    const $itemId = $(this).parent().parent().parent().parent().attr("id")
+    const $itemName = $(this).parent().parent().siblings(`#${$itemId}-name`).html()
     const $itemPrice = ($(this).parent().siblings(`#${$itemId}-price`).html()).slice(1)
 
     $("#squidward-talking").hide();
     // check if the .item-btn parent id exists in the cart already.
     if (!$(`#${$itemId}-cart`).length) {
-      const $itemDiv      = $("<div>", {"class": "item-div", "id": `${$itemId}-cart`})
-      const $copyItemName = $("<input>", {"class": "item-name", "id": `${$itemId}-cart-name`, "name": "item", "value": `${$itemName}`})
-      const $itemQuantity = $("<input>", {"class": "item-value", "id": `${$itemId}-cart-value`, "name": "quantity", "value": "1"})
-      const $removeItem   = $("<a>", {"class": "item-subtract", "id": `${$itemId}-subtract`, "href": "javascript:null", "onclick": "return null"}).html(`-`)
-      const $addItem      = $("<a>", {"class": "item-add", "id": `${$itemId}-add`, "href": "javascript:null", "onclick": "return null"}).html(`+`)
+      const $itemDiv = $("<div>", { "class": "item-div", "id": `${$itemId}-cart` })
+      const $copyItemName = $("<input>", { "class": "item-name", "id": `${$itemId}-cart-name`, "name": "item", "value": `${$itemName}` })
+      const $itemQuantity = $("<input>", { "class": "item-value", "id": `${$itemId}-cart-value`, "name": "quantity", "value": "1" })
+      const $removeItem = $("<a>", { "class": "item-subtract", "id": `${$itemId}-subtract`, "href": "javascript:null", "onclick": "return null" }).html(`-`)
+      const $addItem = $("<a>", { "class": "item-add", "id": `${$itemId}-add`, "href": "javascript:null", "onclick": "return null" }).html(`+`)
       // append all the data to the item-container.
       $itemDiv.append($copyItemName)
       $itemDiv.append($removeItem)
@@ -33,7 +34,7 @@ $(document).ready(function() {
     let $currentTotal = Number(($('#price-total').html())) + Number($itemPrice)
     $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
 
-    $(`#${$itemId}-subtract`).click(function(event) {
+    $(`#${$itemId}-subtract`).click(function (event) {
       const $BtnId = $(this).parent().attr("id")
 
       let $value = $(`#${$BtnId}-value`).attr("value")
@@ -51,7 +52,7 @@ $(document).ready(function() {
       $('#price-total').html(`${Number($currentTotal).toFixed(2)}`)
     })
 
-    $(`#${$itemId}-add`).click(function(event) {
+    $(`#${$itemId}-add`).click(function (event) {
       const $BtnId = $(this).parent().attr("id")
 
       let $value = $(`#${$BtnId}-value`).attr("value")
@@ -64,29 +65,36 @@ $(document).ready(function() {
     })
   })
 
-  $("#cart-confirm-btn").on("click", function(event) {
+
+  $("#cart-confirm-btn").on("click", function (event) {
     if ($('#item-container').find('.item-div').length) {
       $("#cart-confirm-btn").css("display", "none")
       $("#cart-submit-btn").css("display", "block")
+      $("#payment-information").toggle("slow");
+    } else {
+      // alert("no items in cart - shouldn't show pop-up form")
+      //$("payment-infomation").addClass('collapse');
+      // $("cart-confirm-btn").addClass('collapsed');
+      // $("cart-confirm-btn").attr("aria-expanded", "true");
+      // alert("resolving no collapse for no items in cart")
     }
-    $("payment-form").css("display", "none");
   })
 
   // on the submission of the payment information, validate the form.
-  $("#cart-submit-btn").on("click", function(event) {
+  $("#cart-submit-btn").on("click", function (event) {
     event.preventDefault()
     $.ajax({
       url: "/order",
       method: "GET",
       data: $("#payment-form").serialize(),
-      success: function() {
+      success: function () {
         // track the success of each input.
-        const $success    = []
+        const $success = []
         // get the form data through accessing ids.
-        const $cardName   = $("#credit-name").val()
+        const $cardName = $("#credit-name").val()
         const $cardNumber = $("#credit-number").val()
         const $cardExpire = $("#credit-expire").val()
-        const $cardCSV    = $("#credit-csv").val()
+        const $cardCSV = $("#credit-csv").val()
         // ensure that the name field is not empty
         if ($cardName) {
           $("#credit-name").css("color", "#0f0")
@@ -106,13 +114,13 @@ $(document).ready(function() {
         }
         // ensure that the expiry data is properly formatted
         $month = Number($cardExpire.slice(0, 2))
-        $year  = Number($cardExpire.slice(3, 5))
+        $year = Number($cardExpire.slice(3, 5))
         if ($month > 0 && $month < 13 && $year > 20) {
           $("#credit-expire").css("color", "#0f0")
           $success.push(true)
         } else {
           $("#credit-expire").css("color", "#f00")
-        // ensure that the CSV is a 3 digit number.
+          // ensure that the CSV is a 3 digit number.
         } if ($cardCSV >= 100) {
           $("#credit-csv").css("color", "#0f0")
           $success.push(true)
