@@ -57,6 +57,11 @@
           <a class="scroll" id="scroll-link" href="#other">OTHER</a>
           <a class="scroll" id="scroll-link" href="#drinks">DRINKS</a>
         </div>
+        <div id="orders-in-progress">
+          <% if (orders[0]) { %>
+            <%= orders[0].id %>
+          <% } %>
+        </div>
       </div>
       <div id="menu-items">
         <div id="all-items">
