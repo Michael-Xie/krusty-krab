@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <title>Krusty Krab</title>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
@@ -20,10 +22,11 @@
        include('./partials/nav.ejs') %>
   </header>
 
-  <main class='main-body' style="margin: 1em;">
+  <main style="height: 100%">
+    <div class='main-body' style="padding-top: 5em;">
     <div class="form-border">
       <h3 class='login-title '>Login <span>for the secret formula.</span></h3>
-      <div class="form-group mb-2 form-elements">
+      <div class="form-group mb-2 form-elements error-messages">
         <div class="error-messages">
           <% for(let msg of errors) { %>
           <div class="error-message"><%=msg %></div>
@@ -37,6 +40,10 @@
         </div>
       </div>
     </div>
+    </div>
+    <img id="happy-spongebob" src="../images/spongebob-happy.png">
+
+
   </main>
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
