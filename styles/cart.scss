@@ -1,10 +1,14 @@
 #cart-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background-color: black;
-  padding: 1em;
-  width: 100%;
+  background-color: #161616;
+  width: 93%;
+  height: 84%;
+  margin-top: 1em;
+  border-radius: 13px;
+  padding-top: 1em;
+  padding-left: 7px;
+  padding-right: 7px;
 }
 
 #item-container input {
@@ -34,7 +38,8 @@
   border-radius: 4px;
   overflow: auto;
   overflow-x: hidden;
-  max-height: 182px;
+  max-height: 255px;
+  height: 255px;
 }
 
 #price-container {

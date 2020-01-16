@@ -25,8 +25,9 @@ h4 {
   height: 100%;
   flex-direction: column;
   width: 15em;
-  padding-top: 7.3em;
+  padding-top: 3.3em;
   align-items: center;
+  background: whitesmoke;
 }
 
 #categories {
@@ -48,9 +49,9 @@ h4 {
   align-items: center;
   flex-direction: column;
   color: white;
-  border-left: 1px solid black;
   height: 100%;
   width: 24%;
+  background: whitesmoke;
   position: fixed;
   right: 0;
 }
