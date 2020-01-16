@@ -35,13 +35,17 @@ module.exports = (db) => {
             newObj[obj.category_id] = [formattedObj]
           }
         }
-        res.render('order', {
-          menuItems: newObj, 
-          categoryInfo: categoryInfo, 
-          customer: req.session.customer_id, 
-          username: req.session.username
-        });
-      });
+        order.getOrdersInProgress(req.session.customer_id)
+          .then(result => {
+            res.render('order', {
+              orders: result,
+              menuItems: newObj, 
+              categoryInfo: categoryInfo, 
+              customer: req.session.customer_id, 
+              username: req.session.username
+            });
+          });
+    });
   });
 
   router.post("/", (req, res) => {

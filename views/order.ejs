@@ -57,6 +57,16 @@
           <a class="scroll" id="scroll-link" href="#other">OTHER</a>
           <a class="scroll" id="scroll-link" href="#drinks">DRINKS</a>
         </div>
+        <div id="orders-in-progress">
+          <h3>Orders In Progress</h3>
+          <% if (orders[0]) { %>
+            <% orders.forEach(function(order) { %>
+            <div class="order-summary" id=<%= order.id %>>Order #<%= order.id %> In Progress!
+              <br><a href="javascript:null" onclick="return null">View Summary</a>
+            </div>
+            <% }) %>
+          <% } %>
+        </div>
       </div>
       <div id="menu-items">
         <div id="all-items">
