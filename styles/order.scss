@@ -23,11 +23,6 @@ h4 {
   position: fixed;
   left: 0;
   display: flex;
-  background-image: url("../images/spongebob-patty.png");
-  background-repeat: no-repeat;
-  background-size: 103em;
-  background-attachment: fixed;
-  background-position-x: -721px;
   height: 100%;
   flex-direction: column;
   width: 16em;
@@ -81,7 +76,7 @@ h4 {
 
 #scroll-link {
   margin-bottom: 14%;
-  color: white;
+  color: rgb(116, 116, 116);
   font-weight: 500;
   font-size: 137.5%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -90,8 +85,7 @@ h4 {
 
 #scroll-link:hover {
     text-decoration: none;
-    font-weight: 700;
-    color: rgb(3, 72, 182);
+    color: white;
 }
 
 #bar {
