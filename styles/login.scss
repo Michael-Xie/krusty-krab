@@ -21,7 +21,8 @@ body {
 .error-message {
   color: red;
   font-weight: bold;
-  padding-left: 10px;
+  padding-left: 108px;
+  padding-bottom: 18px;
 }
 .main-body {
   display: flex;
@@ -72,12 +73,16 @@ form-elements {
 .form-border {
   display: flex;
   justify-content: center;
-  background-color: transparent;
+  background-color: white;
   align-items: center;
-  margin-top: 2.2em;
+  margin-top: 6.2em;
   flex-direction: column;
-  opacity: 97%;
-  height: 100%;
+  opacity: 93%;
+  width: 53%;
+  padding: 1%;
+  border-radius: 22px;
+  height: 81%;
+  background-image: url(https://www.transparenttextures.com/patterns/dark-wall.png);
 }
 
 span {
@@ -90,12 +95,11 @@ span {
 }
 
 .submit-btn {
-  width: 100%;
+  width: 59%;
   font-size: 238%;
   font-weight: 800;
   font-family: $main-font-family;
   border-radius: 8px;
-  margin-bottom: 1em;
   border-width: 0px;
   color: whitesmoke;
   background-color: #161616;
@@ -114,4 +118,20 @@ span {
 
 #sad-plankton {
   width: 24vw;
+}
+
+#happy-spongebob {
+  margin-left: -18%;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  width: 64%;
+}
+
+img#mr-krabs {
+  z-index: -1;
+  width: 25%;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
 }
