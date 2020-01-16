@@ -53,6 +53,13 @@ $(document).ready(function () {
 
       if (!$('#item-container').find('.item-div').length) {
         $("#squidward-talking").show();
+        // alert($("#payment-information").is(':visible'))
+        // if ($(div).is(':visible'))
+        if ($("#payment-information").is(':visible')) {
+          $("#payment-information").toggle(false);
+          $("#cart-confirm-btn").css("display", "block")
+          $("#cart-submit-btn").css("display", "none")
+        }
 
       }
       })
