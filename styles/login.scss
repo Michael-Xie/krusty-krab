@@ -100,6 +100,10 @@ span {
   background-color: #161616;
 }
 
+.submit-btn:focus {
+  outline: none;
+}
+
 #plankton-image-div {
   display: flex;
   justify-content: right;
