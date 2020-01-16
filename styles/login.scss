@@ -4,12 +4,17 @@ html {
 }
 
 body {
-  background-color: rgb(3, 72, 182);
-  background-image: url("../images/photo.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: whitesmoke;
+  // background-color: rgb(3, 72, 182);
+  // background-image: url("../images/photo.jpg");
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
 
+.error-message {
+  color: red;
+  font-weight: bold;
+}
 .main-body {
   display: flex;
   justify-content: center;
