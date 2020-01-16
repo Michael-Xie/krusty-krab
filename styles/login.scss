@@ -14,6 +14,8 @@ body {
   // background-repeat: no-repeat;
   // background-size: cover;
   height: 90%;
+  background-image: url(https://www.transparenttextures.com/patterns/concrete-wall-2.png);
+
 }
 
 .error-message {
@@ -70,13 +72,12 @@ form-elements {
 .form-border {
   display: flex;
   justify-content: center;
-  background: $panel-color;
+  background-color: transparent;
   align-items: center;
   margin-top: 2.2em;
   flex-direction: column;
-  background-color:$panel-color;
   opacity: 97%;
-  height: 100%
+  height: 100%;
 }
 
 span {
