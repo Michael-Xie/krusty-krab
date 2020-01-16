@@ -19,6 +19,7 @@ body {
 .error-message {
   color: red;
   font-weight: bold;
+  padding-left: 10px;
 }
 .main-body {
   display: flex;
@@ -67,18 +68,14 @@ form-elements {
 
 .form-border {
   display: flex;
-  border: 3px solid rgb(16,16,16);
-  padding-top: 4em;
-  padding-bottom: 2em;
-  width: 75%;
   justify-content: center;
   background: $panel-color;
   align-items: center;
   margin-top: 2.2em;
   flex-direction: column;
-  align-content: center;
   background-color:$panel-color;
   opacity: 97%;
+  height: 100%
 }
 
 span {
@@ -90,7 +87,7 @@ span {
   font-weight: bold;
 }
 
-form > button {
+.submit-btn {
   width: 100%;
   padding-top: 2%;
   padding-bottom: 2%;
