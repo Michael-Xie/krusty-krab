@@ -8,6 +8,10 @@ $(document).ready(function() {
     const $itemId    = $(this).parent().parent().parent().parent().attr("id")
     const $itemName  = $(this).parent().parent().siblings(`#${$itemId}-name`).html()
     const $itemPrice = ($(this).parent().siblings(`#${$itemId}-price`).html()).slice(1)
+
+
+      $("#squidward-talking").hide();
+
     // check if the .item-btn parent id exists in the cart already.
     if (!$(`#${$itemId}-cart`).length) {
       const $itemDiv      = $("<div>", {"class": "item-div", "id": `${$itemId}-cart`})
@@ -23,6 +27,8 @@ $(document).ready(function() {
       $(`#item-container`).append($itemDiv)
       // hide the itemBtn
       $(`#${$itemId}-btn`).fadeOut(1000)
+
+
     } else {
       return
     }
@@ -91,7 +97,7 @@ $(document).ready(function() {
           $("#credit-name").css("color", "#f00")
         }
         // ensure that all the credit number is properly formatted.
-        if (Number($cardNumber) 
+        if (Number($cardNumber)
           && !($cardNumber).includes(".")
           && $cardNumber.length === 16) {
           $("#credit-number").css("color", "#0f0")
