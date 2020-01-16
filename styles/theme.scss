@@ -1846,10 +1846,10 @@ pre code {
   display: flex;
   width: 62vw;
   height: 6vw;
-  padding: -1.625rem 0.75rem;
   font-size: 2.7vw;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
   color: transparent;
   background-color: transparent;
   background-clip: padding-box;
@@ -1859,6 +1859,7 @@ pre code {
   color: black;
   margin-bottom: 0.7em;
   padding-left: 10px;
+  border-radius: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1880,12 +1881,15 @@ pre code {
 .form-control:focus {
   color: black;
   background-color: transparent;
-  border-color: transparent;
+  border-color: black;
   outline: 0;
+  box-shadow: none;
 }
 
 .form-control::placeholder {
   color: rgb(16, 16, 16);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
   opacity: 60%;
 }
 
