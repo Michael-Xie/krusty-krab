@@ -10,6 +10,7 @@ $(document).ready(function() {
     const $itemPrice = ($(this).parent().siblings(`#${$itemId}-price`).html()).slice(1)
 
 
+      $("#squidward-talking").hide();
 
     // check if the .item-btn parent id exists in the cart already.
     if (!$(`#${$itemId}-cart`).length) {
