@@ -9,7 +9,7 @@ module.exports = (db) => {
       res.redirect("/order");
       return;
     }
-    let templateVars = {customer: req.session.customer_id, username: req.session.username};
+    let templateVars = {customer: req.session.customer_id, username: req.session.username, errors: []};
     res.render("login", templateVars);
   });
 
@@ -18,10 +18,14 @@ module.exports = (db) => {
     const username = req.body.username
     const password = req.body.password
 
+    const errorMessages = [];
+
     login.verifyLogin(username, password)
       .then(customer => {
         if (!customer) {
-          res.status(404).send("ERROR: Please enter valid username/password");
+          // res.status(404).send("ERROR: Please enter valid username/password");
+          errorMessages.push("Please enter a valid username or password");
+          res.render("login", {customer: req.session.customer_id, username: req.session.username, errors: errorMessages});
         } else {
           req.session.customer_id = customer
           req.session.username = username
