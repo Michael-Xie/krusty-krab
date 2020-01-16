@@ -61,6 +61,7 @@ module.exports = (db) => {
                   .then(result => {
                     if (result) {
                       req.session.customer_id = result.id
+                      req.session.username = username;
                       res.redirect("/order")
                       return;
                     }
