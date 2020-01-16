@@ -66,7 +66,7 @@ module.exports = (db) => {
             .then(result => {
               if (result) {
                 // add customer to db and re-route to orders.
-                register.addCustomer(username, password, sms)
+                register.addCustomer(username, password, formatPhoneNumber(sms))
                   .then(result => {
                     if (result && errorMessages.length === 0) {
                       req.session.customer_id = result.id
