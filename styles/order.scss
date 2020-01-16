@@ -21,13 +21,12 @@ h4 {
 
 #left-column {
   position: fixed;
-  left: 0;
   display: flex;
   height: 100%;
   flex-direction: column;
-  width: 16em;
-  padding-left: 3em;
-  padding-top: 8em;
+  width: 15em;
+  padding-top: 7.3em;
+  align-items: center;
 }
 
 #categories {
@@ -75,11 +74,11 @@ h4 {
 }
 
 #scroll-link {
-  margin-bottom: 14%;
-  color: rgb(116, 116, 116);
-  font-weight: 500;
-  font-size: 137.5%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 7%;
+  color: #747474;
+  font-weight: 400;
+  font-size: 167.5%;
+  font-family: 'Oswald', sans-serif;
 }
 
 
@@ -98,18 +97,19 @@ h4 {
 
 div#menu-title {
   font-size: 240%;
-  font-weight: 700;
+  font-weight: 500;
   width: 100%;
   display: flex;
+  font-family: oswald, sans-serif;
   margin-bottom: 0.5em;
   justify-content: center;
-
 }
 
 .subtitles {
-  font-size: 170%;
+  font-size: 187%;
   margin-bottom: 0.7%;
-  font-weight: 700;
+  font-weight: 500;
+  font-family: 'Oswald', sans-serif;
 }
 
 .single-item {
@@ -122,6 +122,7 @@ div#menu-title {
   display: flex;
   justify-content: space-between;
   padding-left: 1%;
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -159,15 +160,18 @@ div#menu-title {
   display: flex;
   align-items: center;
   padding-left: 1.2%;
+  font-family: Roboto, sans-serif;
+  font-size: 103%;
 }
 
 .food-name {
   font-size: 150%;
-  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 .description {
-  width: 66%;
+  width: 78%;
   margin-left: 2%;
   font-weight: 250;
   font-size: 1.1em;

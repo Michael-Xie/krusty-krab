@@ -37,16 +37,25 @@ module.exports = (db) => {
       res.redirect('/')
       return;
     }
-    res.render('register', {customer: req.session.customer_id, username: req.session.username, error: ""})
+    res.render('register', { customer: req.session.customer_id, username: req.session.username, errors: [] })
   });
 
- // POST /register - Register new user
+  // POST /register - Register new user
 
   router.post("/", (req, res) => {
     // import register from models to place user in db.
     const username = req.body.username
     const password = bcrypt.hashSync(req.body.password, 10)
-    const sms      = req.body.cellNumber
+    const sms = req.body.cellNumber
+
+    const errorMessages = [];
+
+    if (username.trim().length === 0) {
+      errorMessages.push("Please enter a username");
+    }
+    if (req.body.password.trim().length === 0) {
+      errorMessages.push("Please enter a password");
+    }
 
     // call verify username from our models.
     register.verifyUsername(username)
@@ -57,9 +66,9 @@ module.exports = (db) => {
             .then(result => {
               if (result) {
                 // add customer to db and re-route to orders.
-                register.addCustomer(username, password, sms)
+                register.addCustomer(username, password, formatPhoneNumber(sms))
                   .then(result => {
-                    if (result) {
+                    if (result && errorMessages.length === 0) {
                       req.session.customer_id = result.id
                       req.session.username = username;
                       res.redirect("/order")
@@ -69,7 +78,9 @@ module.exports = (db) => {
                   })
                   .catch(err => res.send(err))
               } else {
-                res.render("register", {customer: req.session.customer_id, username: req.session.username, error: "Phone number invalid or taken. Use format XXX-XXX-XXXX, where X is a number"});
+                errorMessages.push("Phone number invalid or taken. Use format XXX-XXX-XXXX, where X is a number");
+                console.log(errorMessages);
+                res.render("register", {customer: req.session.customer_id, username: req.session.username, errors: errorMessages});
                 // res.status(403).send("ERROR: SMS taken or bad input")
               }
             })
@@ -77,11 +88,15 @@ module.exports = (db) => {
         } else {
           // tell user username/sms is already taken.
           // $('.error-message').text("Username already taken. Try Again.");
-          res.render("register", {customer: req.session.customer_id, username: req.session.username, error: `${username} already taken. Try again.`});
+          errorMessages.push(`${username} already taken. Try again.`)
+          res.render("register", {customer: req.session.customer_id, username: req.session.username, errors: errorMessages});
+          console.log(errorMessages);
           // res.status(403).send("ERROR: username already taken");
         }
       })
       .catch(err => res.send(err))
+    // res.render("register", {customer: req.session.customer_id, username: req.session.username, errors: errorMessages});
+
   })
 
   return router;
