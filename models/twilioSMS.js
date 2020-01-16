@@ -19,7 +19,7 @@ module.exports = (db) => {
       .create({
         body: `${message}`,
         from: '+17024302673',
-        to: '+14169955011'
+        to: `${result[0].cell_number}`
       })
       .then(message => console.log(message.sid))
   }
