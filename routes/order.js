@@ -79,15 +79,15 @@ module.exports = (db) => {
                           if ((result.length === item_length || item_length === 1) && !isChecked) {
                             console.log("order data", result);
                             const orderId    = result[0].order_id
-                            let message = "Krust Krab Confirmation\n"
+                            let message = ["Krust Krab Confirmation"];
                             // // get the estimated order duration.
                             const cookTimes = []
                             result.forEach(row => cookTimes.push(row.cook_time_millisec))
                             // take the max of the result and use it as the order duration.
                             const orderDuration = Math.max(...cookTimes) / 1000
-                            message += "Order Number: #" + orderId + "\n"
-                            message += "Est. order time: " + orderDuration + " seconds\n"
-                            message += `Please check your phone for updates`
+                            message.push(`Order Number: #${orderId}`);
+                            message.push(`Est. order time: ${orderDuration} seconds`);
+                            message.push(`Please check your phone for updates`);
 
                             // // send the SMS
                             // sendSMS.sendSMS(result)

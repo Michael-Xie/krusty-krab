@@ -47,94 +47,94 @@
   <header>
     <%-
        include('./partials/nav.ejs') %>
-    </header>
-    <main id="main-container">
-      <div id="left-column">
-        <div id="menu-scroll">
-          <a class="scroll" id="scroll-link" href="#patties">PATTIES</a>
-          <a class="scroll" id="scroll-link" href="#meals">MEALS</a>
-          <a class="scroll" id="scroll-link" href="#snacks">SNACKS</a>
-          <a class="scroll" id="scroll-link" href="#other">OTHER</a>
-          <a class="scroll" id="scroll-link" href="#drinks">DRINKS</a>
-        </div>
+  </header>
+  <main id="main-container">
+    <div id="left-column">
+      <div id="menu-scroll">
+        <a class="scroll" id="scroll-link" href="#patties">PATTIES</a>
+        <a class="scroll" id="scroll-link" href="#meals">MEALS</a>
+        <a class="scroll" id="scroll-link" href="#snacks">SNACKS</a>
+        <a class="scroll" id="scroll-link" href="#other">OTHER</a>
+        <a class="scroll" id="scroll-link" href="#drinks">DRINKS</a>
       </div>
-      <div id="menu-items">
-        <div id="all-items">
+    </div>
+    <div id="menu-items">
+      <div id="all-items">
         <div class="table" id="table-items">
           <div id="menu-title">KRUSTY KRAB MENU</div>
           <div class="subtitles" id='patties'>PATTIES</div>
-            <% for(let item in menuItems['1']) { %>
-            <% let idName = menuItems['1'][item].name.replace(/ /g, '-').toLowerCase(); %>
-            <div class="single-item" id=<%= idName %>>
-              <div class="important-details">
-                <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></div>
-                <div class="price-add">
+          <% for(let item in menuItems['1']) { %>
+          <% let idName = menuItems['1'][item].name.replace(/ /g, '-').toLowerCase(); %>
+          <div class="single-item" id=<%= idName %>>
+            <div class="important-details">
+              <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['1'][item].name %></div>
+              <div class="price-add">
                 <div class="price" id=<%= idName + '-price' %>><%= '$' +
                   Number(menuItems['1'][item].price / 100).toFixed(2) %></div>
-              <div><a class="item-add item-btn" id=<%= idName + '-btn' %> href="javascript:null"
-                  onclick="return null">+</a></div>
+                <div><a class="item-add item-btn" id=<%= idName + '-btn' %> href="javascript:null"
+                    onclick="return null">+</a></div>
+              </div>
+            </div>
+            <div class="extra-details">
+              <img class="food-image" src=<%= menuItems['1'][item].image_url %>>
+              <div class="description"><%= menuItems['1'][item].description %></div>
             </div>
           </div>
-          <div class="extra-details">
-            <img class="food-image" src=<%= menuItems['1'][item].image_url %>>
-            <div class="description"><%= menuItems['1'][item].description %></div>
-          </div>
-        </div>
-        <% } %>
-        <div class="subtitles" id="meals">MEALS</div>
-        <% for(let item in menuItems['2']) { %>
-        <% let idName = menuItems['2'][item].name.replace(/ /g, '-').toLowerCase(); %>
-        <div class="single-item" id=<%= idName %>>
-          <div class="important-details">
-            <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['2'][item].name %></div>
-            <div class="price-add">
-              <div class="price" id=<%= idName + '-price' %>><%= '$' +
+          <% } %>
+          <div class="subtitles" id="meals">MEALS</div>
+          <% for(let item in menuItems['2']) { %>
+          <% let idName = menuItems['2'][item].name.replace(/ /g, '-').toLowerCase(); %>
+          <div class="single-item" id=<%= idName %>>
+            <div class="important-details">
+              <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['2'][item].name %></div>
+              <div class="price-add">
+                <div class="price" id=<%= idName + '-price' %>><%= '$' +
                 Number(menuItems['2'][item].price / 100).toFixed(2) %></div>
-            <div><a class="item-add item-btn" id=<%= idName + '-btn' %> href="javascript:null"
-                onclick="return null">+</a></div>
+                <div><a class="item-add item-btn" id=<%= idName + '-btn' %> href="javascript:null"
+                    onclick="return null">+</a></div>
+              </div>
+            </div>
+            <div class="extra-details">
+              <img class="food-image" src=<%= menuItems['2'][item].image_url %>>
+              <div class="description"><%= menuItems['2'][item].description %></div>
             </div>
           </div>
-          <div class="extra-details">
-            <img class="food-image" src=<%= menuItems['2'][item].image_url %>>
-            <div class="description"><%= menuItems['2'][item].description %></div>
-          </div>
-        </div>
-        <% } %>
-        <div class="subtitles" id="snacks">SNACKS</div>
-        <% for(let item in menuItems['3']) { %>
-        <% let idName = menuItems['3'][item].name.replace(/ /g, '-').toLowerCase(); %>
-        <div class="single-item" id=<%= idName %>>
-          <div class="important-details">
-            <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['3'][item].name %></div>
-            <div class="price-add">
-              <div class="price" id=<%= idName + '-price' %>><%= '$' +
+          <% } %>
+          <div class="subtitles" id="snacks">SNACKS</div>
+          <% for(let item in menuItems['3']) { %>
+          <% let idName = menuItems['3'][item].name.replace(/ /g, '-').toLowerCase(); %>
+          <div class="single-item" id=<%= idName %>>
+            <div class="important-details">
+              <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['3'][item].name %></div>
+              <div class="price-add">
+                <div class="price" id=<%= idName + '-price' %>><%= '$' +
                 Number(menuItems['3'][item].price / 100).toFixed(2) %></div>
-            <div><a class="item-add item-btn" id=<%= idName + '-btn' %> href="javascript:null"
-                onclick="return null">+</a></div>
+                <div><a class="item-add item-btn" id=<%= idName + '-btn' %> href="javascript:null"
+                    onclick="return null">+</a></div>
+              </div>
+            </div>
+            <div class="extra-details">
+              <img class="food-image" src=<%= menuItems['3'][item].image_url %>>
+              <div class="description"><%= menuItems['3'][item].description %></div>
             </div>
           </div>
-          <div class="extra-details">
-            <img class="food-image" src=<%= menuItems['3'][item].image_url %>>
-            <div class="description"><%= menuItems['3'][item].description %></div>
-          </div>
-        </div>
-        <% } %>
-        <div class="subtitles" id="other">OTHER</div>
-        <% for(let item in menuItems['5']) { %>
-        <% let idName = menuItems['5'][item].name.replace(/ /g, '-').toLowerCase(); %>
-        <div class="single-item" id=<%= idName %>>
-          <div class="important-details">
-            <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['5'][item].name %></div>
-            <div class="price-add">
-              <div class="price" id=<%= idName + '-price' %>><%= '$' +
+          <% } %>
+          <div class="subtitles" id="other">OTHER</div>
+          <% for(let item in menuItems['5']) { %>
+          <% let idName = menuItems['5'][item].name.replace(/ /g, '-').toLowerCase(); %>
+          <div class="single-item" id=<%= idName %>>
+            <div class="important-details">
+              <div class="food-name" id=<%= idName + '-name' %>><%= menuItems['5'][item].name %></div>
+              <div class="price-add">
+                <div class="price" id=<%= idName + '-price' %>><%= '$' +
                 Number(menuItems['5'][item].price / 100).toFixed(2) %></div>
-            <div><a class="item-add item-btn" id=<%= idName + '-btn' %> href="javascript:null"
-                onclick="return null">+</a></div>
+                <div><a class="item-add item-btn" id=<%= idName + '-btn' %> href="javascript:null"
+                    onclick="return null">+</a></div>
+              </div>
             </div>
-          </div>
-          <div class="extra-details">
-            <img class="food-image" src=<%= menuItems['5'][item].image_url %>>
-            <div class="description"><%= menuItems['5'][item].description %></div>
+            <div class="extra-details">
+              <img class="food-image" src=<%= menuItems['5'][item].image_url %>>
+              <div class="description"><%= menuItems['5'][item].description %></div>
             </div>
           </div>
           <% } %>
@@ -147,8 +147,8 @@
               <div class="price-add">
                 <div class="price" id=<%= idName + '-price' %>><%= '$' +
                   Number(menuItems['5'][item].price / 100).toFixed(2) %></div>
-              <div><a class="item-add item-btn" id=<%= idName + '-btn' %> href="javascript:null"
-                  onclick="return null">+</a></div>
+                <div><a class="item-add item-btn" id=<%= idName + '-btn' %> href="javascript:null"
+                    onclick="return null">+</a></div>
               </div>
             </div>
             <div class="extra-details">
@@ -156,7 +156,7 @@
               <div class="description"><%= menuItems['4'][item].description %></div>
             </div>
           </div>
-            <% } %>
+          <% } %>
         </div>
       </div>
       <div id="cart-container">
@@ -166,7 +166,10 @@
             <div id="squidward-talking">
               <p id="squidward-text">What do you want?!</p>
             </div>
-            <div id="order-placed"><%= message %>
+            <div id="order-placed">
+              <% for(let msg of message) { %>
+              <div class="order-msg"><%= msg %></div>
+              <% } %>
             </div>
           </div>
           <div id="price-container">
@@ -176,17 +179,20 @@
         <div id="cart-submit">
           <!-- payment form -->
           <div class="collapse" id="payment-information">
-          <div class="pop-up-form">
-          <form id="payment-form" action="/" method="POST">
-          <!-- override with ajax -->
-          <input class="payment-input" type="text" id="credit-name" placeholder="Name on Card">
-          <input class="payment-input" type="text" id="credit-number" placeholder="16 digit number" maxlength="16">
-          <input class="payment-input" type="text" id="credit-expire" placeholder="Expiration (mm/yy)" maxlength="5">
-          <input class="payment-input" type="text" id="credit-csv" placeholder="CSV" maxlength="3">
-          </form>
+            <div class="pop-up-form">
+              <form id="payment-form" action="/" method="POST">
+                <!-- override with ajax -->
+                <input class="payment-input" type="text" id="credit-name" placeholder="Name on Card">
+                <input class="payment-input" type="text" id="credit-number" placeholder="16 digit number"
+                  maxlength="16">
+                <input class="payment-input" type="text" id="credit-expire" placeholder="Expiration (mm/yy)"
+                  maxlength="5">
+                <input class="payment-input" type="text" id="credit-csv" placeholder="CSV" maxlength="3">
+              </form>
+            </div>
           </div>
-          </div>
-          <input type="button" value="Confirm Order" class="cart-btn" id="cart-confirm-btn" href="#payment-information" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <input type="button" value="Confirm Order" class="cart-btn" id="cart-confirm-btn" href="#payment-information"
+            role="button" aria-expanded="false" aria-controls="collapseExample">
           <input type="submit" value="Place Order" class="cart-btn" id="cart-submit-btn">
         </div>
       </div>

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  $("#order-placed").show();
   $(".item-btn").click(function (event) {
     const verifyPayment = (formData) => {
       $cardNumber = $("#credit-name").val()
@@ -144,6 +143,9 @@ $(document).ready(function () {
         // we are clear to post the order!
         if ($success.length === 4) {
           $("#cart-form").submit();
+          console.log("all passed in payment");
+          $("#squidward-talking").hide();
+
           $("#order-placed").show();
         }
       }
