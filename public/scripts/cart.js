@@ -142,8 +142,19 @@ $(document).ready(function () {
 
         // if we have a success array of length 4,
         // we are clear to post the order!
-        if ($success.length === 4)
-          $("#cart-form").submit()
+        if ($success.length === 4) {
+          $(`<div id="dialog">
+              Congratulations! Your Order has been submitted, you will received an SMS after this dialog is closed
+            </div>
+            `).dialog({
+              'title': "hello world",
+              'buttons': {
+                'my button': function(event) {
+                  $("#cart-form").submit()
+                }
+              }
+          }).show()
+        }
       }
     })
   })
