@@ -144,11 +144,11 @@ $(document).ready(function () {
         // we are clear to post the order!
         if ($success.length === 4) {
           $(`<div id="dialog">
-              Congratulations! Your order has been submitted, you will received an order confirmation and will be notified when your order is ready through SMS! :)
+              Congratulations! You will received an order confirmation and will be notified when your order is ready through SMS! :)
             </div>
             `).dialog({
               'buttons': {
-                'my button': function(event) {
+                'OK': function(event) {
                   $("#cart-form").submit()
                 }
               }

@@ -101,6 +101,10 @@
   border-radius: 8px;
 }
 
+.cart-btn:focus {
+  outline: none;
+}
+
 .pop-up-form {
   display: flex;
   flex-direction: column;
