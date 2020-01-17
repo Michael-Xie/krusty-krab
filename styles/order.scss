@@ -245,4 +245,33 @@ img.gang {
   margin-left: 11%;
 }
 
+#dialog {
+  min-height: 80px;
+  margin-top: 10px;
+  margin-bottom: 9px;
+}
+
+.ui-dialog-titlebar {
+  display: none;
+}
+
+.ui-dialog-buttonset > button {
+  background: whitesmoke;
+  font-family: 'Oswald', sans-serif;
+  font-size: 127%;
+  font-weight: 800;
+  border-radius: 9px;
+}
+
+.ui-dialog-buttonset {
+  display: flex;
+  justify-content: center;
+}
+
+.ui-dialog-buttonset > button:focus {
+  outline: none;
+}
+
+
+
 
