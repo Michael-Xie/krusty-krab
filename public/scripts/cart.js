@@ -144,16 +144,27 @@ $(document).ready(function () {
         // we are clear to post the order!
         if ($success.length === 4) {
           $(`<div id="dialog">
-              Congratulations! Your Order has been submitted, you will received an SMS after this dialog is closed
+              Congratulations! Your order has been submitted, you will received an order confirmation and will be notified when your order is ready through SMS! :)
             </div>
             `).dialog({
-              'title': "hello world",
               'buttons': {
                 'my button': function(event) {
                   $("#cart-form").submit()
                 }
               }
-          }).show()
+          }).show().parent().css(
+            { 'position': 'fixed',
+              'width': '368px',
+              'top': '37%',
+              'left': '33%',
+              'background': '#161616',
+              'border-radius': '20px',
+              'color': 'whitesmoke',
+              'font-family': 'Roboto, sans-serif',
+              'padding': '1em',
+              'opacity': '97%',
+              'font-weight': '300',
+              'font-size': '113%' })
         }
       }
     })
