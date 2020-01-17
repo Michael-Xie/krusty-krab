@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+  $("#order-placed").show();
   $(".item-btn").click(function (event) {
     const verifyPayment = (formData) => {
       $cardNumber = $("#credit-name").val()
@@ -142,8 +142,10 @@ $(document).ready(function () {
 
         // if we have a success array of length 4,
         // we are clear to post the order!
-        if ($success.length === 4)
-          $("#cart-form").submit()
+        if ($success.length === 4) {
+          $("#cart-form").submit();
+          $("#order-placed").show();
+        }
       }
     })
   })

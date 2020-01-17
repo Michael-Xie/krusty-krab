@@ -4,6 +4,8 @@ module.exports = (db) => {
   const router  = express.Router();
   const order   = require('../models/order')(db)
   const sendSMS = require('../models/twilioSMS')(db)
+  let categoryInfo = {};
+  let newObj = {};
 
   router.get("/", (req, res) => {
     // if the customer is not logged in, redirect to login.
@@ -14,8 +16,6 @@ module.exports = (db) => {
 
     order.getMenuItems()
       .then(result => {
-        let categoryInfo = {};
-        let newObj = {};
         for (let obj of result) {
           if(!categoryInfo[obj.category_id]) {
             categoryInfo[obj.category_id] = obj.category_name;
@@ -39,10 +39,11 @@ module.exports = (db) => {
           .then(result => {
             res.render('order', {
               orders: result,
-              menuItems: newObj, 
-              categoryInfo: categoryInfo, 
-              customer: req.session.customer_id, 
-              username: req.session.username
+              menuItems: newObj,
+              categoryInfo: categoryInfo,
+              customer: req.session.customer_id,
+              username: req.session.username,
+              message: ''
             });
           });
     });
@@ -76,9 +77,29 @@ module.exports = (db) => {
                       order.getOrderData(resOne.id)
                         .then(result => {
                           if ((result.length === item_length || item_length === 1) && !isChecked) {
-                            // send the SMS
-                            sendSMS.sendSMS(result)
-                            res.redirect("/order")
+                            console.log("order data", result);
+                            const orderId    = result[0].order_id
+                            let message = "Krust Krab Confirmation\n"
+                            // // get the estimated order duration.
+                            const cookTimes = []
+                            result.forEach(row => cookTimes.push(row.cook_time_millisec))
+                            // take the max of the result and use it as the order duration.
+                            const orderDuration = Math.max(...cookTimes) / 1000
+                            message += "Order Number: #" + orderId + "\n"
+                            message += "Est. order time: " + orderDuration + " seconds\n"
+                            message += `Please check your phone for updates`
+
+                            // // send the SMS
+                            // sendSMS.sendSMS(result)
+
+                            res.render("order", {
+                              orders: [],
+                              menuItems: newObj,
+                              categoryInfo: categoryInfo,
+                              customer: req.session.customer_id,
+                              username: req.session.username,
+
+                              message: message});
                             // will disable any further SMS messages.
                             isChecked = true;
                             return Promise.reject("stopping further SMS requests...")
