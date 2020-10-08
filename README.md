@@ -4,9 +4,9 @@ Krusty Krab is a Sponge Bob themed full stack web application built with HTML/CS
 
 ## Final Product
 
-!["Screenshot of register page"](https://github.com/pizzani/krusty-krab/blob/master/docs/register-page.png)
-!["Screenshot of login page"](https://github.com/pizzani/krusty-krab/blob/master/docs/login-page.png)
-!["Screenshot of order page"](https://github.com/pizzani/krusty-krab/blob/master/docs/order-page.png)
+!["Screenshot of register page"](https://github.com/Michael-Xie/krusty-krab/blob/master/docs/register-page.png)
+!["Screenshot of login page"](https://github.com/Michael-Xie/krusty-krab/blob/master/docs/login-page.png)
+!["Screenshot of order page"](https://github.com/Michael-Xie/krusty-krab/blob/master/docs/order-page.png)
 
 <!-- LHL Node Skeleton
 ========= -->
